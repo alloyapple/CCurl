@@ -24,72 +24,122 @@
 
 typedef size_t (*CurlFunc)(void * ptr, size_t size, size_t num, void * ud);
 
-static inline CURLcode curlHelperSetOptBool(CURL *curl, CURLoption option, int yesNo) {
-    return curl_easy_setopt(curl, option, yesNo == CURL_TRUE ? 1L : 0L);
-}
+// static inline CURLcode curl_set_bool(CURL *curl, CURLoption option, int yesNo) {
+//     return curl_easy_setopt(curl, option, yesNo == CURL_TRUE ? 1L : 0L);
+// }
 
-// set options list - CURLOPT_HTTPHEADER, CURLOPT_HTTP200ALIASES, CURLOPT_QUOTE, CURLOPT_TELNETOPTIONS, CURLOPT_MAIL_RCPT, etc.
-static inline CURLcode curlHelperSetOptList(CURL *curl, CURLoption option, struct curl_slist *list) {
-    return curl_easy_setopt(curl, option, list);
-}
 
-static inline CURLcode curlHelperSetOptInt(CURL *curl, CURLoption option, long data) {
-    return curl_easy_setopt(curl, option, data);
-}
+// // set options list - CURLOPT_HTTPHEADER, CURLOPT_HTTP200ALIASES, CURLOPT_QUOTE, CURLOPT_TELNETOPTIONS, CURLOPT_MAIL_RCPT, etc.
+// static inline CURLcode curl_set_list(CURL *curl, CURLoption option, struct curl_slist *list) {
+//     return curl_easy_setopt(curl, option, list);
+// }
 
-// const keyword is used so that Swift strings can be passed
-static inline CURLcode curlHelperSetOptString(CURL *curl, CURLoption option, const char *data) {
-    return curl_easy_setopt(curl, option, data);
-}
+// static inline CURLcode curl_set_int(CURL *curl, CURLoption option, long data) {
+//     return curl_easy_setopt(curl, option, data);
+// }
 
-static inline CURLcode curlHelperSetOptReadFunc(CURL *curl, void *userData, size_t (*read_cb) (char *buffer, size_t size, size_t nitems, void *userdata)) {
+// // const keyword is used so that Swift strings can be passed
+// static inline CURLcode curl_set_string(CURL *curl, CURLoption option, const char *data) {
+//     return curl_easy_setopt(curl, option, data);
+// }
+
+// static inline CURLcode curlHelperSetOptReadFunc(CURL *curl, void *userData, size_t (*read_cb) (char *buffer, size_t size, size_t nitems, void *userdata)) {
     
-    CURLcode rc = curl_easy_setopt(curl, CURLOPT_READDATA, userData);
-    if  (rc == CURLE_OK) {
-        rc = curl_easy_setopt(curl, CURLOPT_READFUNCTION, read_cb);
-    }
-    return rc;
-}
+//     CURLcode rc = curl_easy_setopt(curl, CURLOPT_READDATA, userData);
+//     if  (rc == CURLE_OK) {
+//         rc = curl_easy_setopt(curl, CURLOPT_READFUNCTION, read_cb);
+//     }
+//     return rc;
+// }
 
-static inline CURLcode curlHelperSetOptWriteFunc(CURL *curl, void *userData, size_t (*write_cb) (char *ptr, size_t size, size_t nmemb, void *userdata)) {
+// static inline CURLcode curlHelperSetOptWriteFunc(CURL *curl, void *userData, size_t (*write_cb) (char *ptr, size_t size, size_t nmemb, void *userdata)) {
     
-    CURLcode rc = curl_easy_setopt(curl, CURLOPT_HEADER, 1);
-    if  (rc == CURLE_OK)  {
-        rc = curl_easy_setopt(curl, CURLOPT_WRITEDATA, userData);
-        if  (rc == CURLE_OK) {
-            rc = curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_cb);
-        }
-    }
-    return rc;
-}
+//     CURLcode rc = curl_easy_setopt(curl, CURLOPT_HEADER, 1);
+//     if  (rc == CURLE_OK)  {
+//         rc = curl_easy_setopt(curl, CURLOPT_WRITEDATA, userData);
+//         if  (rc == CURLE_OK) {
+//             rc = curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_cb);
+//         }
+//     }
+//     return rc;
+// }
 
-static inline CURLcode curlHelperSetOptHeaderFunc(CURL *curl, void *userData, size_t (*header_cb) (char *buffer, size_t size, size_t nmemb, void *userdata)) {
+// static inline CURLcode curlHelperSetOptHeaderFunc(CURL *curl, void *userData, size_t (*header_cb) (char *buffer, size_t size, size_t nmemb, void *userdata)) {
     
-    CURLcode rc = curl_easy_setopt(curl, CURLOPT_HEADER, 0);
-    if (rc == CURLE_OK) {
-        rc = curl_easy_setopt(curl, CURLOPT_HEADERDATA, userData);
-        if (rc == CURLE_OK) {
-            rc = curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, header_cb);
-        }
-    }
-    return rc;
+//     CURLcode rc = curl_easy_setopt(curl, CURLOPT_HEADER, 0);
+//     if (rc == CURLE_OK) {
+//         rc = curl_easy_setopt(curl, CURLOPT_HEADERDATA, userData);
+//         if (rc == CURLE_OK) {
+//             rc = curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, header_cb);
+//         }
+//     }
+//     return rc;
+// }
+
+// static inline CURLcode curl_set_void(CURL *handle, CURLoption option, void * value) {
+// 	return curl_easy_setopt(handle, option, value);
+// }
+
+// static inline CURLcode curl_get_string(CURL *curl, CURLINFO info, char **data) {
+//     return curl_easy_getinfo(curl, info, data);
+// }
+
+
+// static inline CURLcode curl_get_long(CURL *curl, CURLINFO info, long *data) {
+//     return curl_easy_getinfo(curl, info, data);
+// }
+
+// static inline CURLcode curlHelperSetOptFunc(CURL *handle, CURLoption option, CurlFunc value){
+// 	return curl_easy_setopt(handle, option, value);
+// }
+
+static inline CURLcode curl_set_url(CURL *handle, const char* url) {
+    return curl_easy_setopt(curl, CURLOPT_URL, url);
 }
 
-static inline CURLcode curlHelperSetOptVoid(CURL *handle, CURLoption option, void * value) {
-	return curl_easy_setopt(handle, option, value);
+//BEHAVIOR OPTIONS
+static inline CURLcode curl_set_verbose(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_VERBOSE, onoff);
 }
 
-static inline CURLcode curlHelperGetInfoCString(CURL *curl, CURLINFO info, char **data) {
-    return curl_easy_getinfo(curl, info, data);
+static inline CURLcode curl_set_header(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_HEADER, onoff);
+}
+
+static inline CURLcode curl_set_noprogress(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_NOPROGRESS, onoff);
+}
+
+static inline CURLcode curl_set_nosignal(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_NOSIGNAL, onoff);
+}
+
+static inline CURLcode curl_set_wildcardmatch(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_WILDCARDMATCH, onoff);
 }
 
 
-static inline CURLcode curlHelperGetInfoLong(CURL *curl, CURLINFO info, long *data) {
-    return curl_easy_getinfo(curl, info, data);
+static inline CURLcode curl_set_wildcardmatch(CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_WILDCARDMATCH, onoff);
 }
 
-static inline CURLcode curlHelperSetOptFunc(CURL *handle, CURLoption option, CurlFunc value){
-	return curl_easy_setopt(handle, option, value);
+//CALLBACK OPTIONS
+typedef size_t (*write_callback)(char *ptr, size_t size, size_t nmemb, void *userdata);
+static inline CURLcode curl_set_writefunction(CURL *handle, write_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_writedata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(curl, CURLOPT_WRITEDATA, callback);
+}
+
+typedef size_t (*read_callback)(char *buffer, size_t size, size_t nitems, void *instream);
+static inline CURLcode curl_set_readfunction(CURL *handle, read_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_READFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_readdata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(curl, CURLOPT_READDATA, callback);
 }
 
 #endif /* CurlHelpers_h */
