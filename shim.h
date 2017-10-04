@@ -142,4 +142,34 @@ static inline CURLcode curl_set_readdata(CURL *handle, void* pointer) {
     return curl_easy_setopt(curl, CURLOPT_READDATA, callback);
 }
 
+typedef curlioerr (*ioctl_callback)(CURL *handle, int cmd, void *clientp);
+static inline CURLcode curl_set_ioctlfunction(CURL *handle, ioctl_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_IOCTLFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_ioctldata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(curl, CURLOPT_IOCTLDATA, pointer);
+}
+
+typedef int (*seek_callback)(void *userp, curl_off_t offset, int origin);
+static inline CURLcode curl_set_seekfunction(CURL *handle, seek_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_SEEKFUNCTION, callback);
+}
+
+
+static inline CURLcode curl_set_seekdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_SEEKDATA, pointer);
+}
+
+typedef int (*sockopt_callback)(void *clientp,
+                     curl_socket_t curlfd,
+                     curlsocktype purpose);
+static inline CURLcode curl_set_sockoptfunction(CURL *handle, sockopt_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_SOCKOPTFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_sockoptdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_SOCKOPTDATA, pointer);
+}
+
 #endif /* CurlHelpers_h */
