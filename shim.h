@@ -172,4 +172,67 @@ static inline CURLcode curl_set_sockoptdata(CURL *handle, void *pointer) {
     return curl_easy_setopt(curl, CURLOPT_SOCKOPTDATA, pointer);
 }
 
+typedef curl_socket_t (*opensocket_callback)(void *clientp,
+                                  curlsocktype purpose,
+                                  struct curl_sockaddr *address);
+static inline CURLcode curl_set_opensocketfunction(CURL *handle, opensocket_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_OPENSOCKETFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_opensocketdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_OPENSOCKETDATA, pointer);
+}
+
+typedef int (*closesocket_callback)(void *clientp, curl_socket_t item);
+static inline CURLcode curl_set_closesocketfunction(CURL *handle, closesocket_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CLOSESOCKETFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_closesocketdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_CLOSESOCKETDATA, pointer);
+}
+
+typedef int (*progress_callback)(void *clientp,   
+                                double dltotal,   
+                                double dlnow,   
+                                double ultotal,   
+                                double ulnow);
+static inline CURLcode curl_set_progressfunction(CURL *handle, progress_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_PROGRESSFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_progressdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, pointer);
+}
+
+
+static inline CURLcode curl_set_xferinfofunction(CURL *handle, progress_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_XFERINFOFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_xferinfodata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_XFERINFODATA, pointer);
+}
+
+typedef size_t (*header_callback)(char *buffer,   
+                                    size_t size,   
+                                    size_t nitems,   
+                                    void *userdata);
+static inline CURLcode curl_set_headerfunction(CURL *handle, header_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_headerdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_HEADERDATA, pointer);
+}
+
+typedef size_t (*debug_callback)(CURL *handle,
+                                curl_infotype type,
+                                char *data,
+                                size_t size,
+                                void *userptr);
+static inline CURLcode curl_set_debugfunction(CURL *handle, debug_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, callback);
+}
+
 #endif /* CurlHelpers_h */
