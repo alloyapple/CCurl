@@ -119,10 +119,6 @@ static inline CURLcode curl_set_wildcardmatch(CURL *handle, long onoff) {
 }
 
 
-static inline CURLcode curl_set_wildcardmatch(CURL *handle, long onoff) {
-    return curl_easy_setopt(handle, CURLOPT_WILDCARDMATCH, onoff);
-}
-
 //CALLBACK OPTIONS
 typedef size_t (*write_callback)(char *ptr, size_t size, size_t nmemb, void *userdata);
 static inline CURLcode curl_set_writefunction(CURL *handle, write_callback callback) {
@@ -130,7 +126,7 @@ static inline CURLcode curl_set_writefunction(CURL *handle, write_callback callb
 }
 
 static inline CURLcode curl_set_writedata(CURL *handle, void* pointer) {
-    return curl_easy_setopt(handle, CURLOPT_WRITEDATA, callback);
+    return curl_easy_setopt(handle, CURLOPT_WRITEDATA, pointer);
 }
 
 typedef size_t (*read_callback)(char *buffer, size_t size, size_t nitems, void *instream);
@@ -139,7 +135,7 @@ static inline CURLcode curl_set_readfunction(CURL *handle, read_callback callbac
 }
 
 static inline CURLcode curl_set_readdata(CURL *handle, void* pointer) {
-    return curl_easy_setopt(handle, CURLOPT_READDATA, callback);
+    return curl_easy_setopt(handle, CURLOPT_READDATA, pointer);
 }
 
 typedef curlioerr (*ioctl_callback)(CURL *handle, int cmd, void *clientp);
@@ -306,9 +302,9 @@ static inline CURLcode curl_set_fnmatch_data(CURL *handle, void *pointer) {
     return curl_easy_setopt(handle, CURLOPT_FNMATCH_DATA, pointer);
 }
 
-static inline CURLcode curl_set_suppress_connect_headers (CURL *handle, long onoff) {
-    return curl_easy_setopt(handle, CURLOPT_SUPPRESS_CONNECT_HEADERS , onoff);
-}
+// static inline CURLcode curl_set_suppress_connect_headers (CURL *handle, long onoff) {
+//     return curl_easy_setopt(handle, CURLOPT_SUPPRESS_CONNECT_HEADERS , onoff);
+// }
 
 //ERROR OPTIONS
 
