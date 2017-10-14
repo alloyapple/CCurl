@@ -226,7 +226,7 @@ static inline CURLcode curl_set_headerdata(CURL *handle, void *pointer) {
     return curl_easy_setopt(curl, CURLOPT_HEADERDATA, pointer);
 }
 
-typedef size_t (*debug_callback)(CURL *handle,
+typedef int (*debug_callback)(CURL *handle,
                                 curl_infotype type,
                                 char *data,
                                 size_t size,
@@ -234,5 +234,81 @@ typedef size_t (*debug_callback)(CURL *handle,
 static inline CURLcode curl_set_debugfunction(CURL *handle, debug_callback callback) {
     return curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, callback);
 }
+
+static inline CURLcode curl_set_debugdata(CURL *handle,  void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_DEBUGDATA, pointer);
+}
+
+typedef CURLcode (*ssl_ctx_callback)(CURL *curl, 
+                                    void *ssl_ctx, 
+                                    void *userptr);
+static inline CURLcode curl_set_ssl_ctx_function(CURL *handle, ssl_ctx_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_SSL_CTX_FUNCTION, callback);
+}
+
+static inline CURLcode curl_set_ssl_ctx_data(CURL *handle,  void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_SSL_CTX_DATA, pointer);
+}
+
+
+typedef CURLcode (*conv_callback)(char *ptr, 
+                                    size_t length);
+static inline CURLcode curl_set_conv_to_network_function(CURL *handle, conv_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CONV_TO_NETWORK_FUNCTION, callback);
+}
+
+static inline CURLcode curl_set_conv_from_network_function(CURL *handle, conv_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CONV_FROM_NETWORK_FUNCTION, callback);
+}
+
+static inline CURLcode curl_set_conv_from_utf8_function(CURL *handle, conv_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CONV_FROM_UTF8_FUNCTION, callback);
+}
+
+typedef size_t (*interleave_callback)(void *ptr, 
+                                        size_t size, 
+                                        size_t nmemb,
+                                        void *userdata);
+static inline CURLcode curl_set_interleavefunction(CURL *handle, interleave_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_INTERLEAVEFUNCTION, callback);
+}
+
+
+static inline CURLcode curl_set_interleavedata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_INTERLEAVEDATA, pointer);
+}
+
+typedef long (*chunk_bgn_callback)(const void *transfer_info, 
+                                    void *ptr,
+                                    int remains);
+static inline CURLcode curl_set_chunk_bgn_function(CURL *handle, chunk_bgn_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CHUNK_BGN_FUNCTION, callback);
+}
+
+typedef long (*chunk_end_callback)(void *ptr);
+static inline CURLcode curl_set_chunk_end_function(CURL *handle, chunk_end_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_CHUNK_END_FUNCTION, callback);
+}
+
+static inline CURLcode curl_set_chunk_data(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_CHUNK_DATA, pointer);
+}
+
+
+typedef int (*fnmatch_callback)(void *ptr,
+                     const char *pattern,
+                     const char *string);
+static inline CURLcode curl_set_fnmatch_function(CURL *handle, fnmatch_callback callback) {
+    return curl_easy_setopt(curl, CURLOPT_FNMATCH_FUNCTION, callback);
+}
+
+static inline CURLcode curl_set_fnmatch_data(CURL *handle, void *pointer) {
+    return curl_easy_setopt(curl, CURLOPT_FNMATCH_DATA, pointer);
+}
+
+static inline CURLcode curl_set_suppress_connect_headers (CURL *handle, long onoff) {
+    return curl_easy_setopt(curl, CURLOPT_SUPPRESS_CONNECT_HEADERS , onoff);
+}
+
 
 #endif /* CurlHelpers_h */
