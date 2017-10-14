@@ -310,5 +310,6 @@ static inline CURLcode curl_set_suppress_connect_headers (CURL *handle, long ono
     return curl_easy_setopt(curl, CURLOPT_SUPPRESS_CONNECT_HEADERS , onoff);
 }
 
+//ERROR OPTIONS
 
 #endif /* CurlHelpers_h */
