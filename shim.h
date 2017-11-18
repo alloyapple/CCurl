@@ -402,5 +402,62 @@ static inline CURLcode curl_set_localport(CURL *handle,  long port) {
     return curl_easy_setopt(handle, CURLOPT_LOCALPORT , port);
 }
 
+static inline CURLcode curl_set_localportrange(CURL *handle,  long range) {
+    return curl_easy_setopt(handle, CURLOPT_LOCALPORTRANGE , range);
+}
+
+static inline CURLcode curl_set_dns_cache_timeout(CURL *handle,  long age) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_CACHE_TIMEOUT , age);
+}
+
+static inline CURLcode curl_set_dns_use_global_cache(CURL *handle,  long enable) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_USE_GLOBAL_CACHE , enable);
+}
+
+static inline CURLcode curl_set_buffersize(CURL *handle,   long size) {
+    return curl_easy_setopt(handle, CURLOPT_BUFFERSIZE , size);
+}
+
+static inline CURLcode curl_set_port(CURL *handle,  long number) {
+    return curl_easy_setopt(handle, CURLOPT_PORT , number);
+}
+
+static inline CURLcode curl_set_tcp_fastopen(CURL *handle,  long enable) {
+    return curl_easy_setopt(handle, CURLOPT_TCP_FASTOPEN , enable);
+}
+
+static inline CURLcode curl_set_tcp_nodelay(CURL *handle,  long nodelay) {
+    return curl_easy_setopt(handle, CURLOPT_TCP_NODELAY , nodelay);
+}
+
+static inline CURLcode curl_set_address_scope(CURL *handle, long scope) {
+    return curl_easy_setopt(handle, CURLOPT_ADDRESS_SCOPE , scope);
+}
+
+static inline CURLcode curl_set_tcp_keepalive(CURL *handle, long probe) {
+    return curl_easy_setopt(handle, CURLOPT_TCP_KEEPALIVE , probe);
+}
+
+static inline CURLcode curl_set_tcp_keepidle(CURL *handle, long delay) {
+    return curl_easy_setopt(handle, CURLOPT_TCP_KEEPIDLE , delay);
+}
+
+static inline CURLcode curl_set_tcp_keepintvl(CURL *handle, long interval) {
+    return curl_easy_setopt(handle, CURLOPT_TCP_KEEPINTVL , interval);
+}
+
+static inline CURLcode curl_set_unix_socket_path(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_UNIX_SOCKET_PATH , path);
+}
+
+static inline CURLcode curl_set_abstract_unix_socket(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_ABSTRACT_UNIX_SOCKET , path);
+}
+
+//NAMES and PASSWORDS OPTIONS (Authentication)
+
+//HTTP OPTIONS
+
+
 
 #endif /* CurlHelpers_h */
