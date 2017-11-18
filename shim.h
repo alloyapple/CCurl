@@ -536,5 +536,149 @@ static inline CURLcode curl_set_autoreferer(CURL *handle, long autorefer) {
     return curl_easy_setopt(handle, CURLOPT_AUTOREFERER, autorefer);
 }
 
+static inline CURLcode curl_set_accept_encoding(CURL *handle, char* enc) {
+    return curl_easy_setopt(handle, CURLOPT_ACCEPT_ENCODING, enc);
+}
+
+static inline CURLcode curl_set_transfer_encoding(CURL *handle, char* enc) {
+    return curl_easy_setopt(handle, CURLOPT_TRANSFER_ENCODING, enc);
+}
+
+static inline CURLcode curl_set_followlocation(CURL *handle, long enable) {
+    return curl_easy_setopt(handle, CURLOPT_FOLLOWLOCATION, enable);
+}
+
+static inline CURLcode curl_set_unrestricted_auth(CURL *handle, long enable) {
+    return curl_easy_setopt(handle, CURLOPT_UNRESTRICTED_AUTH, enable);
+}
+
+static inline CURLcode curl_set_maxredirs(CURL *handle, long amount) {
+    return curl_easy_setopt(handle, CURLOPT_MAXREDIRS, amount);
+}
+
+static inline CURLcode curl_set_postredir(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_POSTREDIR, bitmask);
+}
+
+static inline CURLcode curl_set_put(CURL *handle, long put) {
+    return curl_easy_setopt(handle, CURLOPT_PUT, put);
+}
+
+static inline CURLcode curl_set_post(CURL *handle, long post) {
+    return curl_easy_setopt(handle, CURLOPT_POST, post);
+}
+
+static inline CURLcode curl_set_postfields(CURL *handle, char *postdata) {
+    return curl_easy_setopt(handle, CURLOPT_POSTFIELDS, postdata);
+}
+
+static inline CURLcode curl_set_postfieldsize(CURL *handle, long size) {
+    return curl_easy_setopt(handle, CURLOPT_POSTFIELDSIZE, size);
+}
+
+static inline CURLcode curl_set_postfieldsize_large(CURL *handle, curl_off_t size) {
+    return curl_easy_setopt(handle, CURLOPT_POSTFIELDSIZE_LARGE, size);
+}
+
+static inline CURLcode curl_set_copypostfields(CURL *handle, char *data) {
+    return curl_easy_setopt(handle, CURLOPT_COPYPOSTFIELDS, data);
+}
+
+static inline CURLcode curl_set_httppost(CURL *handle, struct curl_httppost *formpost) {
+    return curl_easy_setopt(handle, CURLOPT_HTTPPOST, formpost);
+}
+
+static inline CURLcode curl_set_referer(CURL *handle, char *where) {
+    return curl_easy_setopt(handle, CURLOPT_REFERER, where);
+}
+
+static inline CURLcode curl_set_useragent(CURL *handle, char *ua) {
+    return curl_easy_setopt(handle, CURLOPT_USERAGENT, ua);
+}
+
+static inline CURLcode curl_set_httpheader(CURL *handle, struct curl_slist *headers) {
+    return curl_easy_setopt(handle, CURLOPT_HTTPHEADER, headers);
+}
+
+static inline CURLcode curl_set_headeropt(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_HEADEROPT, bitmask);
+}
+
+static inline CURLcode curl_set_proxyheader(CURL *handle, struct curl_slist *headers) {
+    return curl_easy_setopt(handle, CURLOPT_PROXYHEADER, headers);
+}
+
+static inline CURLcode curl_set_http200aliases(CURL *handle, struct curl_slist *aliases) {
+    return curl_easy_setopt(handle, CURLOPT_HTTP200ALIASES, aliases);
+}
+
+static inline CURLcode curl_set_cookie(CURL *handle, char *cookie) {
+    return curl_easy_setopt(handle, CURLOPT_COOKIE, cookie);
+}
+
+static inline CURLcode curl_set_cookiefile(CURL *handle, char *filename) {
+    return curl_easy_setopt(handle, CURLOPT_COOKIEFILE, filename);
+}
+
+static inline CURLcode curl_set_cookiejar(CURL *handle, char *filename) {
+    return curl_easy_setopt(handle, CURLOPT_COOKIEJAR, filename);
+}
+
+static inline CURLcode curl_set_cookiesession(CURL *handle, long init) {
+    return curl_easy_setopt(handle, CURLOPT_COOKIESESSION, init);
+}
+
+static inline CURLcode curl_set_cookielist(CURL *handle, char *cookie) {
+    return curl_easy_setopt(handle, CURLOPT_COOKIELIST, cookie);
+}
+
+static inline CURLcode curl_set_httpget(CURL *handle, long useget) {
+    return curl_easy_setopt(handle, CURLOPT_HTTPGET, useget);
+}
+
+
+static inline CURLcode curl_set_request_target(CURL *handle, char *target) {
+    return curl_easy_setopt(handle, CURLOPT_REQUEST_TARGET, target);
+}
+
+static inline CURLcode curl_set_http_version(CURL *handle, long version) {
+    return curl_easy_setopt(handle, CURLOPT_HTTP_VERSION, version);
+}
+
+static inline CURLcode curl_set_ignore_content_length(CURL *handle, long ignore) {
+    return curl_easy_setopt(handle, CURLOPT_IGNORE_CONTENT_LENGTH, ignore);
+}
+
+static inline CURLcode curl_set_http_content_decoding(CURL *handle, long enabled) {
+    return curl_easy_setopt(handle, CURLOPT_HTTP_CONTENT_DECODING , enabled);
+}
+
+static inline CURLcode curl_set_http_transfer_decoding(CURL *handle, long enabled) {
+    return curl_easy_setopt(handle, CURLOPT_HTTP_TRANSFER_DECODING, enabled);
+}
+
+static inline CURLcode curl_set_expect_100_timeout_ms(CURL *handle, long milliseconds) {
+    return curl_easy_setopt(handle, CURLOPT_EXPECT_100_TIMEOUT_MS, milliseconds);
+}
+
+static inline CURLcode curl_set_pipewait(CURL *handle, long wait) {
+    return curl_easy_setopt(handle, CURLOPT_PIPEWAIT, wait);
+}
+
+static inline CURLcode curl_set_stream_depends(CURL *handle, CURL *dephandle) {
+    return curl_easy_setopt(handle, CURLOPT_STREAM_DEPENDS, dephandle);
+}
+
+static inline CURLcode curl_set_stream_depends_e(CURL *handle, CURL *dephandle) {
+    return curl_easy_setopt(handle, CURLOPT_STREAM_DEPENDS_E, dephandle);
+}
+
+static inline CURLcode curl_set_stream_weight(CURL *handle, long weight) {
+    return curl_easy_setopt(handle, CURLOPT_STREAM_WEIGHT, weight);
+}
+
+
+
+
 
 #endif /* CurlHelpers_h */
