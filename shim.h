@@ -307,5 +307,100 @@ static inline CURLcode curl_set_fnmatch_data(CURL *handle, void *pointer) {
 // }
 
 //ERROR OPTIONS
+static inline CURLcode curl_set_errorbuffer(CURL *handle, char *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_ERRORBUFFER, pointer);
+}
+
+static inline CURLcode curl_set_stderr(CURL *handle, FILE *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_STDERR, pointer);
+}
+
+static inline CURLcode curl_set_failonerror(CURL *handle, long fail) {
+    return curl_easy_setopt(handle, CURLOPT_FAILONERROR, fail);
+}
+
+static inline CURLcode curl_set_keep_sending_on_error(CURL *handle, long keep_sending) {
+    return curl_easy_setopt(handle, CURLOPT_KEEP_SENDING_ON_ERROR , keep_sending);
+}
+
+//NETWORK OPTIONS
+static inline CURLcode curl_set_url(CURL *handle, char* url) {
+    return curl_easy_setopt(handle, CURLOPT_URL , url);
+}
+
+static inline CURLcode curl_set_path_as_is(CURL *handle, long leaveit) {
+    return curl_easy_setopt(handle, CURLOPT_PATH_AS_IS , leaveit);
+}
+
+static inline CURLcode curl_set_protocols(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_PROTOCOLS , bitmask);
+}
+
+static inline CURLcode curl_set_redir_protocols(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_REDIR_PROTOCOLS , bitmask);
+}
+
+
+static inline CURLcode curl_set_default_protocol(CURL *handle, char *protocol) {
+    return curl_easy_setopt(handle, CURLOPT_DEFAULT_PROTOCOL , protocol);
+}
+
+static inline CURLcode curl_set_proxy(CURL *handle, char *proxy) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY , proxy);
+}
+
+static inline CURLcode curl_set_pre_proxy(CURL *handle, char *preproxy) {
+    return curl_easy_setopt(handle, CURLOPT_PRE_PROXY , preproxy);
+}
+
+
+static inline CURLcode curl_set_proxyport(CURL *handle, long port) {
+    return curl_easy_setopt(handle, CURLOPT_PROXYPORT , port);
+}
+
+static inline CURLcode curl_set_proxytype(CURL *handle, long type) {
+    return curl_easy_setopt(handle, CURLOPT_PROXYTYPE , type);
+}
+
+static inline CURLcode curl_set_noproxy(CURL *handle, char *noproxy) {
+    return curl_easy_setopt(handle, CURLOPT_NOPROXY , noproxy);
+}
+
+static inline CURLcode curl_set_httpproxytunnel(CURL *handle,  long tunnel) {
+    return curl_easy_setopt(handle, CURLOPT_HTTPPROXYTUNNEL , tunnel);
+}
+
+static inline CURLcode curl_set_connect_to(CURL *handle,  struct curl_slist *connect_to) {
+    return curl_easy_setopt(handle, CURLOPT_CONNECT_TO , connect_to);
+}
+
+static inline CURLcode curl_set_socks5_auth(CURL *handle,  long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_SOCKS5_AUTH , bitmask);
+}
+
+static inline CURLcode curl_set_socks5_gssapi_service(CURL *handle,  char *name) {
+    return curl_easy_setopt(handle, CURLOPT_SOCKS5_GSSAPI_SERVICE , name);
+}
+
+static inline CURLcode curl_set_socks5_gssapi_nec(CURL *handle,  long nec) {
+    return curl_easy_setopt(handle, CURLOPT_SOCKS5_GSSAPI_NEC , nec);
+}
+
+static inline CURLcode curl_set_proxy_service_name(CURL *handle,  char *name) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SERVICE_NAME , name);
+}
+
+static inline CURLcode curl_set_service_name(CURL *handle,  char *name) {
+    return curl_easy_setopt(handle, CURLOPT_SERVICE_NAME , name);
+}
+
+static inline CURLcode curl_set_interface(CURL *handle,  char *interface) {
+    return curl_easy_setopt(handle, CURLOPT_INTERFACE , interface);
+}
+
+static inline CURLcode curl_set_localport(CURL *handle,  long port) {
+    return curl_easy_setopt(handle, CURLOPT_LOCALPORT , port);
+}
+
 
 #endif /* CurlHelpers_h */
