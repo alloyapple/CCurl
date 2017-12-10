@@ -769,4 +769,31 @@ static inline CURLcode curl_set_infilesize(CURL *handle, long filesize) {
     return curl_easy_setopt(handle, CURLOPT_INFILESIZE, filesize);
 }
 
+static inline CURLcode curl_set_upload(CURL *handle, long upload) {
+    return curl_easy_setopt(handle, CURLOPT_UPLOAD, upload);
+}
+
+static inline CURLcode curl_set_mimepost(CURL *handle, curl_mime *mime) {
+    return curl_easy_setopt(handle, CURLOPT_MIMEPOST, mime);
+}
+
+static inline CURLcode curl_set_maxfilesize(CURL *handle, long size) {
+    return curl_easy_setopt(handle, CURLOPT_MAXFILESIZE, size);
+}
+
+static inline CURLcode curl_set_maxfilesize_large(CURL *handle, curl_off_t size) {
+    return curl_easy_setopt(handle, CURLOPT_MAXFILESIZE_LARGE, size);
+}
+
+static inline CURLcode curl_set_timecondition(CURL *handle, long cond) {
+    return curl_easy_setopt(handle, CURLOPT_TIMECONDITION, cond);
+}
+
+static inline CURLcode curl_set_timevalue(CURL *handle, long val) {
+    return curl_easy_setopt(handle, CURLOPT_TIMEVALUE, val);
+}
+
+//CONNECTION OPTIONS
+
+
 #endif /* CurlHelpers_h */
