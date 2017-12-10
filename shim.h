@@ -695,8 +695,34 @@ static inline CURLcode curl_set_ftp_filemethod(CURL *handle, long method) {
     return curl_easy_setopt(handle, CURLOPT_FTP_FILEMETHOD, method);
 }
 
+//RTSP OPTIONS
 
+/*
+    desc: https://curl.haxx.se/libcurl/c/CURLOPT_RTSP_REQUEST.html
+*/
+static inline CURLcode curl_set_rtsp_request(CURL *handle, long request) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_REQUEST, request);
+}
 
+static inline CURLcode curl_set_rtsp_session_id(CURL *handle, char *id) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_SESSION_ID, id);
+}
+
+static inline CURLcode curl_set_rtsp_stream_uri(CURL *handle, char *URI) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_STREAM_URI, URI);
+}
+
+static inline CURLcode curl_set_rtsp_transport(CURL *handle, char *transport) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_TRANSPORT, transport);
+}
+
+static inline CURLcode curl_set_rtsp_client_cseq(CURL *handle, long cseq) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_CLIENT_CSEQ, cseq);
+}
+
+static inline CURLcode curl_set_rtsp_client_cseq(CURL *handle, long cseq) {
+    return curl_easy_setopt(handle, CURLOPT_RTSP_SERVER_CSEQ, cseq);
+}
 
 
 #endif /* CurlHelpers_h */
