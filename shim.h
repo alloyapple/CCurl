@@ -608,6 +608,93 @@ static inline CURLcode curl_set_stream_weight(CURL *handle, long weight) {
     return curl_easy_setopt(handle, CURLOPT_STREAM_WEIGHT, weight);
 }
 
+//SMTP OPTIONS
+static inline CURLcode curl_set_mail_from(CURL *handle, char *from) {
+    return curl_easy_setopt(handle, CURLOPT_MAIL_FROM, from);
+}
+
+static inline CURLcode curl_set_mail_rcpt(CURL *handle, struct curl_slist *rcpts) {
+    return curl_easy_setopt(handle, CURLOPT_MAIL_RCPT, rcpts);
+}
+
+static inline CURLcode curl_set_mail_auth(CURL *handle, char *auth) {
+    return curl_easy_setopt(handle, CURLOPT_MAIL_AUTH, auth);
+}
+
+//TFTP OPTIONS
+static inline CURLcode curl_set_tftp_no_options(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_TFTP_NO_OPTIONS, onoff);
+}
+
+static inline CURLcode curl_set_tftp_blksize(CURL *handle, long blocksize) {
+    return curl_easy_setopt(handle, CURLOPT_TFTP_BLKSIZE, blocksize);
+}
+
+//FTP OPTIONS
+static inline CURLcode curl_set_ftpport(CURL *handle, char *spec) {
+    return curl_easy_setopt(handle, CURLOPT_FTPPORT, spec);
+}
+
+static inline CURLcode curl_set_quote(CURL *handle, struct curl_slist *cmds) {
+    return curl_easy_setopt(handle, CURLOPT_QUOTE, cmds);
+}
+
+static inline CURLcode curl_set_postquote(CURL *handle, struct curl_slist *cmds) {
+    return curl_easy_setopt(handle, CURLOPT_POSTQUOTE, cmds);
+}
+
+static inline CURLcode curl_set_prequote(CURL *handle, struct curl_slist *cmds) {
+    return curl_easy_setopt(handle, CURLOPT_PREQUOTE, cmds);
+}
+
+static inline CURLcode curl_set_append(CURL *handle, long append) {
+    return curl_easy_setopt(handle, CURLOPT_APPEND, append);
+}
+
+static inline CURLcode curl_set_ftp_use_eprt(CURL *handle, long enabled) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_USE_EPRT, enabled);
+}
+
+static inline CURLcode curl_set_ftp_use_epsv(CURL *handle, long epsv) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_USE_EPSV, epsv);
+}
+
+static inline CURLcode curl_set_ftp_use_pret(CURL *handle, long enable) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_USE_PRET, enable);
+}
+
+static inline CURLcode curl_set_ftp_create_missing_dirs(CURL *handle, long create) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_CREATE_MISSING_DIRS, create);
+}
+
+static inline CURLcode curl_set_ftp_response_timeout(CURL *handle, long timeout) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_RESPONSE_TIMEOUT, timeout);
+}
+
+static inline CURLcode curl_set_ftp_alternative_to_user(CURL *handle, char *cmd) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_ALTERNATIVE_TO_USER, cmd);
+}
+
+static inline CURLcode curl_set_ftp_skip_pasv_ip(CURL *handle,  long skip) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_SKIP_PASV_IP, skip);
+}
+
+static inline CURLcode curl_set_ftpsslauth(CURL *handle, long order) {
+    return curl_easy_setopt(handle, CURLOPT_FTPSSLAUTH, order);
+}
+
+static inline CURLcode curl_set_ftp_ssl_ccc(CURL *handle, long how) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_SSL_CCC, how);
+}
+
+static inline CURLcode curl_set_ftp_account(CURL *handle, char *account) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_ACCOUNT, account);
+}
+
+static inline CURLcode curl_set_ftp_filemethod(CURL *handle, long method) {
+    return curl_easy_setopt(handle, CURLOPT_FTP_FILEMETHOD, method);
+}
+
 
 
 
