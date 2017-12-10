@@ -724,5 +724,49 @@ static inline CURLcode curl_set_rtsp_client_cseq(CURL *handle, long cseq) {
     return curl_easy_setopt(handle, CURLOPT_RTSP_SERVER_CSEQ, cseq);
 }
 
+//PROTOCOL OPTIONS
+static inline CURLcode curl_set_transfertext(CURL *handle, long text) {
+    return curl_easy_setopt(handle, CURLOPT_TRANSFERTEXT, text);
+}
+
+static inline CURLcode curl_set_proxy_transfer_mode(CURL *handle, long enabled) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_TRANSFER_MODE, enabled);
+}
+
+static inline CURLcode curl_set_crlf(CURL *handle, long conv) {
+    return curl_easy_setopt(handle, CURLOPT_CRLF, conv);
+}
+
+static inline CURLcode curl_set_range(CURL *handle, char *range) {
+    return curl_easy_setopt(handle, CURLOPT_RANGE, range);
+}
+
+static inline CURLcode curl_set_resume_from(CURL *handle, long from) {
+    return curl_easy_setopt(handle, CURLOPT_RESUME_FROM, from);
+}
+
+static inline CURLcode curl_set_resume_from_large(CURL *handle, curl_off_t from) {
+    return curl_easy_setopt(handle, CURLOPT_RESUME_FROM_LARGE, from);
+}
+
+static inline CURLcode curl_set_customrequest(CURL *handle,  char *request) {
+    return curl_easy_setopt(handle, CURLOPT_CUSTOMREQUEST, request);
+}
+
+static inline CURLcode curl_set_filetime(CURL *handle, long gettime) {
+    return curl_easy_setopt(handle, CURLOPT_FILETIME, gettime);
+}
+
+static inline CURLcode curl_set_dirlistonly(CURL *handle, long listonly) {
+    return curl_easy_setopt(handle, CURLOPT_DIRLISTONLY, listonly);
+}
+
+static inline CURLcode curl_set_nobody(CURL *handle,  long opt) {
+    return curl_easy_setopt(handle, CURLOPT_NOBODY, opt);
+}
+
+static inline CURLcode curl_set_infilesize(CURL *handle, long filesize) {
+    return curl_easy_setopt(handle, CURLOPT_INFILESIZE, filesize);
+}
 
 #endif /* CurlHelpers_h */
