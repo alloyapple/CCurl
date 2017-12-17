@@ -794,6 +794,89 @@ static inline CURLcode curl_set_timevalue(CURL *handle, long val) {
 }
 
 //CONNECTION OPTIONS
+static inline CURLcode curl_set_timeout(CURL *handle, long timeout) {
+    return curl_easy_setopt(handle, CURLOPT_TIMEOUT, timeout);
+}
+
+static inline CURLcode curl_set_timeout_ms(CURL *handle, long timeout) {
+    return curl_easy_setopt(handle, CURLOPT_TIMEOUT_MS, timeout);
+}
+
+static inline CURLcode curl_set_low_speed_limit(CURL *handle, long speedlimit) {
+    return curl_easy_setopt(handle, CURLOPT_LOW_SPEED_LIMIT, speedlimit);
+}
+
+static inline CURLcode curl_set_low_speed_time(CURL *handle, long speedtime) {
+    return curl_easy_setopt(handle, CURLOPT_LOW_SPEED_TIME, speedtime);
+}
+
+static inline CURLcode curl_set_max_send_speed_large(CURL *handle, curl_off_t maxspeed) {
+    return curl_easy_setopt(handle, CURLOPT_MAX_SEND_SPEED_LARGE, maxspeed);
+}
+
+static inline CURLcode curl_set_max_recv_speed_large(CURL *handle, curl_off_t speed) {
+    return curl_easy_setopt(handle, CURLOPT_MAX_RECV_SPEED_LARGE, speed);
+}
+
+static inline CURLcode curl_set_maxconnects(CURL *handle, long amount) {
+    return curl_easy_setopt(handle, CURLOPT_MAXCONNECTS, amount);
+}
+
+static inline CURLcode curl_set_fresh_connect(CURL *handle, long fresh) {
+    return curl_easy_setopt(handle, CURLOPT_FRESH_CONNECT, fresh);
+}
+
+static inline CURLcode curl_set_forbid_reuse(CURL *handle, long close) {
+    return curl_easy_setopt(handle, CURLOPT_FORBID_REUSE, close);
+}
+
+static inline CURLcode curl_set_connecttimeout(CURL *handle, long timeout) {
+    return curl_easy_setopt(handle, CURLOPT_CONNECTTIMEOUT, timeout);
+}
+
+static inline CURLcode curl_set_connecttimeout_ms(CURL *handle, long timeout) {
+    return curl_easy_setopt(handle, CURLOPT_CONNECTTIMEOUT_MS, timeout);
+}
+
+static inline CURLcode curl_set_ipresolve(CURL *handle, long resolve) {
+    return curl_easy_setopt(handle, CURLOPT_IPRESOLVE, resolve);
+}
+
+static inline CURLcode curl_set_connect_only(CURL *handle, long only) {
+    return curl_easy_setopt(handle, CURLOPT_CONNECT_ONLY, only);
+}
+
+static inline CURLcode curl_set_use_ssl(CURL *handle, long level) {
+    return curl_easy_setopt(handle, CURLOPT_USE_SSL, level);
+}
+
+static inline CURLcode curl_set_resolve(CURL *handle, struct curl_slist *hosts) {
+    return curl_easy_setopt(handle, CURLOPT_RESOLVE, hosts);
+}
+
+static inline CURLcode curl_set_dns_interface(CURL *handle,  char *ifname) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_INTERFACE, ifname);
+}
+
+static inline CURLcode curl_set_dns_local_ip4(CURL *handle, char *address) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_LOCAL_IP4, address);
+}
+
+static inline CURLcode curl_set_dns_local_ip6(CURL *handle, char *address) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_LOCAL_IP6, address);
+}
+
+static inline CURLcode curl_set_dns_servers(CURL *handle, char *servers) {
+    return curl_easy_setopt(handle, CURLOPT_DNS_SERVERS, servers);
+}
+
+static inline CURLcode curl_set_accepttimeout_ms(CURL *handle,  long ms) {
+    return curl_easy_setopt(handle, CURLOPT_ACCEPTTIMEOUT_MS, ms);
+}
+
+//SSL and SECURITY OPTIONS
+
+
 
 
 #endif /* CurlHelpers_h */
