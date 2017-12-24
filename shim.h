@@ -875,8 +875,174 @@ static inline CURLcode curl_set_accepttimeout_ms(CURL *handle,  long ms) {
 }
 
 //SSL and SECURITY OPTIONS
+static inline CURLcode curl_set_sslcert(CURL *handle, char *cert) {
+    return curl_easy_setopt(handle, CURLOPT_SSLCERT, cert);
+}
 
+static inline CURLcode curl_set_proxy_sslcert(CURL *handle, char *cert) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERT, cert);
+}
 
+static inline CURLcode curl_set_sslcerttype(CURL *handle, char *type) {
+    return curl_easy_setopt(handle, CURLOPT_SSLCERTTYPE, type);
+}
 
+static inline CURLcode curl_set_proxy_sslcerttype(CURL *handle, char *type) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERTTYPE, type);
+}
+
+static inline CURLcode curl_set_sslkey(CURL *handle, char *keyfile) {
+    return curl_easy_setopt(handle, CURLOPT_SSLKEY, keyfile);
+}
+
+static inline CURLcode curl_set_proxy_sslkey(CURL *handle, char *keyfile) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLKEY, keyfile);
+}
+
+static inline CURLcode curl_set_sslkeytype(CURL *handle, char *type) {
+    return curl_easy_setopt(handle, CURLOPT_SSLKEYTYPE, type);
+}
+
+static inline CURLcode curl_set_proxy_sslkeytype(CURL *handle, char *type) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLKEYTYPE, type);
+}
+
+static inline CURLcode curl_set_keypasswd(CURL *handle, char *pwd) {
+    return curl_easy_setopt(handle, CURLOPT_KEYPASSWD, pwd);
+}
+
+static inline CURLcode curl_set_proxy_keypasswd(CURL *handle, char *pwd) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_KEYPASSWD, pwd);
+}
+
+static inline CURLcode curl_set_ssl_enable_alpn(CURL *handle, long npn) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_ENABLE_ALPN, npn);
+}
+
+static inline CURLcode curl_set_ssl_enable_npn(CURL *handle, long npn) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_ENABLE_NPN, npn);
+}
+
+static inline CURLcode curl_set_sslengine(CURL *handle, char *id) {
+    return curl_easy_setopt(handle, CURLOPT_SSLENGINE, id);
+}
+
+static inline CURLcode curl_set_sslengine_default(CURL *handle, long val) {
+    return curl_easy_setopt(handle, CURLOPT_SSLENGINE_DEFAULT, val);
+}
+
+static inline CURLcode curl_set_ssl_falsestart(CURL *handle, long enable) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_FALSESTART, enable);
+}
+
+static inline CURLcode curl_set_sslversion(CURL *handle, long version) {
+    return curl_easy_setopt(handle, CURLOPT_SSLVERSION, version);
+}
+
+static inline CURLcode curl_set_proxy_sslversion(CURL *handle, long version) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSLVERSION, version);
+}
+
+static inline CURLcode curl_set_ssl_verifyhost(CURL *handle, long verify) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, verify);
+}
+
+static inline CURLcode curl_set_proxy_ssl_verifyhost(CURL *handle, long verify) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_VERIFYHOST, verify);
+}
+
+static inline CURLcode curl_set_ssl_verifypeer(CURL *handle, long verify) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, verify);
+}
+
+static inline CURLcode curl_set_proxy_ssl_verifypeer(CURL *handle, long verify) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_VERIFYPEER, verify);
+}
+
+static inline CURLcode curl_set_ssl_verifystatus(CURL *handle, long verify) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_VERIFYSTATUS, verify);
+}
+
+static inline CURLcode curl_set_cainfo(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_CAINFO, path);
+}
+
+static inline CURLcode curl_set_proxy_cainfo(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_CAINFO, path);
+}
+
+static inline CURLcode curl_set_issuercert(CURL *handle, char *file) {
+    return curl_easy_setopt(handle, CURLOPT_ISSUERCERT, file);
+}
+
+static inline CURLcode curl_set_capath(CURL *handle, char *capath) {
+    return curl_easy_setopt(handle, CURLOPT_CAPATH, capath);
+}
+
+static inline CURLcode curl_set_proxy_capath(CURL *handle, char *capath) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_CAPATH, capath);
+}
+
+static inline CURLcode curl_set_crlfile(CURL *handle, char *file) {
+    return curl_easy_setopt(handle, CURLOPT_CRLFILE, file);
+}
+
+static inline CURLcode curl_set_proxy_crlfile(CURL *handle, char *file) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_CRLFILE, file);
+}
+
+static inline CURLcode curl_set_certinfo(CURL *handle, long certinfo) {
+    return curl_easy_setopt(handle, CURLOPT_CERTINFO, certinfo);
+}
+
+static inline CURLcode curl_set_pinnedpublickey(CURL *handle, char *pinnedpubkey) {
+    return curl_easy_setopt(handle, CURLOPT_PINNEDPUBLICKEY, pinnedpubkey);
+}
+
+static inline CURLcode curl_set_proxy_pinnedpublickey(CURL *handle, char *pinnedpubkey) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_PINNEDPUBLICKEY, pinnedpubkey);
+}
+
+static inline CURLcode curl_set_random_file(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_RANDOM_FILE, path);
+}
+
+static inline CURLcode curl_set_egdsocket(CURL *handle, char *path) {
+    return curl_easy_setopt(handle, CURLOPT_EGDSOCKET, path);
+}
+
+static inline CURLcode curl_set_ssl_cipher_list(CURL *handle, char *list) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_CIPHER_LIST, list);
+}
+
+static inline CURLcode curl_set_proxy_ssl_cipher_list(CURL *handle, char *list) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_CIPHER_LIST, list);
+}
+
+static inline CURLcode curl_set_proxy_ssl_cipher_list(CURL *handle, char *list) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_CIPHER_LIST, list);
+}
+
+static inline CURLcode curl_set_ssl_sessionid_cache(CURL *handle, long enabled) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_SESSIONID_CACHE, enabled);
+}
+
+static inline CURLcode curl_set_ssl_options(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_SSL_OPTIONS, bitmask);
+}
+
+static inline CURLcode curl_set_proxy_ssl_options(CURL *handle, long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_OPTIONS, bitmask);
+}
+
+static inline CURLcode curl_set_krblevel(CURL *handle, char *level) {
+    return curl_easy_setopt(handle, CURLOPT_KRBLEVEL, level);
+}
+
+static inline CURLcode curl_set_gssapi_delegation(CURL *handle,  long level) {
+    return curl_easy_setopt(handle, CURLOPT_GSSAPI_DELEGATION, level);
+}
+
+//SSH OPTIONS
 
 #endif /* CurlHelpers_h */
