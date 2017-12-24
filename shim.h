@@ -1044,5 +1044,39 @@ static inline CURLcode curl_set_gssapi_delegation(CURL *handle,  long level) {
 }
 
 //SSH OPTIONS
+static inline CURLcode curl_set_ssh_auth_types(CURL *handle,  long bitmask) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_AUTH_TYPES, bitmask);
+}
+
+static inline CURLcode curl_set_ssh_compression(CURL *handle,  long enable) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_COMPRESSION, enable);
+}
+
+static inline CURLcode curl_set_ssh_host_public_key_md5(CURL *handle, char *md5) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_HOST_PUBLIC_KEY_MD5, md5);
+}
+
+static inline CURLcode curl_set_ssh_public_keyfile(CURL *handle, char *filename) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_PUBLIC_KEYFILE, filename);
+}
+
+static inline CURLcode curl_set_ssh_private_keyfile(CURL *handle, char *filename) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_PRIVATE_KEYFILE, filename);
+}
+
+static inline CURLcode curl_set_ssh_knownhosts(CURL *handle, char *fname) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_KNOWNHOSTS, fname);
+}
+
+static inline CURLcode curl_set_ssh_keyfunction(CURL *handle, ssh_keycallback *callback) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_KEYFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_SSH_KEYDATA(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_SSH_KEYDATA, pointer);
+}
+
+//OTHER OPTIONS
+
 
 #endif /* CurlHelpers_h */
