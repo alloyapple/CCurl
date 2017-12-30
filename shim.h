@@ -1072,11 +1072,45 @@ static inline CURLcode curl_set_ssh_keyfunction(CURL *handle, ssh_keycallback *c
     return curl_easy_setopt(handle, CURLOPT_SSH_KEYFUNCTION, callback);
 }
 
-static inline CURLcode curl_set_SSH_KEYDATA(CURL *handle, void *pointer) {
+static inline CURLcode curl_set_ssh_keydata(CURL *handle, void *pointer) {
     return curl_easy_setopt(handle, CURLOPT_SSH_KEYDATA, pointer);
 }
 
 //OTHER OPTIONS
+static inline CURLcode curl_set_private(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_PRIVATE, pointer);
+}
+
+static inline CURLcode curl_set_share(CURL *handle, CURLSH *share) {
+    return curl_easy_setopt(handle, CURLOPT_SHARE, share);
+}
+
+static inline CURLcode curl_set_new_file_perms(CURL *handle, long mode) {
+    return curl_easy_setopt(handle, CURLOPT_NEW_FILE_PERMS, mode);
+}
+
+static inline CURLcode curl_set_new_directory_perms(CURL *handle, long mode) {
+    return curl_easy_setopt(handle, CURLOPT_NEW_DIRECTORY_PERMS, mode);
+}
+
+
+static inline CURLcode curl_set_telnetoptions(CURL *handle, struct curl_slist *cmds) {
+    return curl_easy_setopt(handle, CURLOPT_TELNETOPTIONS, cmds);
+}
+
+///curl_easy_getinfo - extract information from a curl handle 
+CURLcode curl_easy_get_effective_url(CURL *handle, char **urlp) {
+    return curl_easy_getinfo(handle, CURLINFO_TELNETOPTIONS, urlp);
+}
+
+CURLcode curl_easy_get_response_code(CURL *handle,  long *codep) {
+    return curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE, codep);
+}
+
+CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
+    return curl_easy_getinfo(handle, CURLINFO_HTTP_CONNECTCODE, p);
+}
+
 
 
 #endif /* CurlHelpers_h */
