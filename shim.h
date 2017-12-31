@@ -1111,6 +1111,93 @@ CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
     return curl_easy_getinfo(handle, CURLINFO_HTTP_CONNECTCODE, p);
 }
 
+CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
+    return curl_easy_getinfo(handle, CURLINFO_HTTP_CONNECTCODE, p);
+}
+
+CURLcode curl_easy_get_http_version(CURL *handle,  long *p) {
+    return curl_easy_getinfo(handle, CURLINFO_HTTP_VERSION, p);
+}
+
+CURLcode curl_easy_get_filetime(CURL *handle,  long *p) {
+    return curl_easy_getinfo(handle, CURLINFO_FILETIME, p);
+}
+
+CURLcode curl_easy_get_total_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_TOTAL_TIME, timep);
+}
+
+CURLcode curl_easy_get_namelookup_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_NAMELOOKUP_TIME, timep);
+}
+
+
+CURLcode curl_easy_get_connect_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_CONNECT_TIME, timep);
+}
+
+
+CURLcode curl_easy_get_appconnect_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_APPCONNECT_TIME, timep);
+}
+
+CURLcode curl_easy_get_pretransfer_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_PRETRANSFER_TIME, timep);
+}
+
+CURLcode curl_easy_get_starttransfer_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_STARTTRANSFER_TIME, timep);
+}
+
+CURLcode curl_easy_get_redirect_time(CURL *handle,  double *timep) {
+    return curl_easy_getinfo(handle, CURLINFO_REDIRECT_TIME, timep);
+}
+
+CURLcode curl_easy_get_redirect_count(CURL *handle,  long *countp) {
+    return curl_easy_getinfo(handle, CURLINFO_REDIRECT_COUNT, countp);
+}
+
+CURLcode curl_easy_get_redirect_url(CURL *handle,   char **urlp) {
+    return curl_easy_getinfo(handle, CURLINFO_REDIRECT_URL, urlp);
+}
+
+CURLcode curl_easy_get_size_upload(CURL *handle, double *uploadp) {
+    return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD, uploadp);
+}
+
+CURLcode curl_easy_get_size_upload_t(CURL *handle, curl_off_t *uploadp) {
+    return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD_T, uploadp);
+}
+
+CURLcode curl_easy_get_size_download_t(CURL *handle, curl_off_t *dlp) {
+    return curl_easy_getinfo(handle, CURLINFO_SIZE_DOWNLOAD_T, dlp);
+}
+
+CURLcode curl_easy_get_speed_download_t(CURL *handle, curl_off_t *speed) {
+    return curl_easy_getinfo(handle, CURLINFO_SPEED_DOWNLOAD_T, speed);
+}
+
+CURLcode curl_easy_get_speed_upload_t(CURL *handle, curl_off_t *speed) {
+    return curl_easy_getinfo(handle, CURLINFO_SPEED_UPLOAD_T, speed);
+}
+
+CURLcode curl_easy_get_header_size(CURL *handle, long *sizep) {
+    return curl_easy_getinfo(handle, CURLINFO_HEADER_SIZE, sizep);
+}
+
+CURLcode curl_easy_get_request_size(CURL *handle, long *sizep) {
+    return curl_easy_getinfo(handle, CURLINFO_REQUEST_SIZE, sizep);
+}
+
+CURLcode curl_easy_get_ssl_verifyresult(CURL *handle, long *result) {
+    return curl_easy_getinfo(handle, CURLINFO_SSL_VERIFYRESULT, result);
+}
+
+CURLcode curl_easy_get_proxy_ssl_verifyresult(CURL *handle, long *result) {
+    return curl_easy_getinfo(handle, CURLINFO_PROXY_SSL_VERIFYRESULT, result);
+}
+
+
 
 
 #endif /* CurlHelpers_h */
