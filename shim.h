@@ -1197,6 +1197,112 @@ CURLcode curl_easy_get_proxy_ssl_verifyresult(CURL *handle, long *result) {
     return curl_easy_getinfo(handle, CURLINFO_PROXY_SSL_VERIFYRESULT, result);
 }
 
+CURLcode curl_easy_get_ssl_engines(CURL *handle, struct curl_slist **engine_list) {
+    return curl_easy_getinfo(handle, CURLINFO_SSL_ENGINES, engine_list);
+}
+
+CURLcode curl_easy_get_content_length_download_t(CURL *handle, curl_off_t *content_length) {
+    return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, content_length);
+}
+
+CURLcode curl_easy_get_content_length_upload_t(CURL *handle, curl_off_t *content_length) {
+    return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_UPLOAD_T, content_length);
+}
+
+CURLcode curl_easy_get_content_type(CURL *handle, char **ct) {
+    return curl_easy_getinfo(handle, CURLINFO_CONTENT_TYPE, ct);
+}
+
+CURLcode curl_easy_get_private(CURL *handle, char **private) {
+    return curl_easy_getinfo(handle, CURLINFO_PRIVATE, private);
+}
+
+CURLcode curl_easy_get_httpauth_avail(CURL *handle, long *authp) {
+    return curl_easy_getinfo(handle, CURLINFO_HTTPAUTH_AVAIL, authp);
+}
+
+CURLcode curl_easy_get_proxyauth_avail(CURL *handle, long *authp) {
+    return curl_easy_getinfo(handle, CURLINFO_PROXYAUTH_AVAIL, authp);
+}
+
+CURLcode curl_easy_get_os_errno(CURL *handle, long *errnop) {
+    return curl_easy_getinfo(handle, CURLINFO_OS_ERRNO, errnop);
+}
+
+CURLcode curl_easy_get_num_connects(CURL *handle, long *nump) {
+    return curl_easy_getinfo(handle, CURLINFO_NUM_CONNECTS, nump);
+}
+
+CURLcode curl_easy_get_primary_ip(CURL *handle, char **ip) {
+    return curl_easy_getinfo(handle, CURLINFO_PRIMARY_IP, ip);
+}
+
+CURLcode curl_easy_get_primary_port(CURL *handle, long* portp) {
+    return curl_easy_getinfo(handle, CURLINFO_PRIMARY_PORT, portp);
+}
+
+CURLcode curl_easy_get_local_ip(CURL *handle, char **ip) {
+    return curl_easy_getinfo(handle, CURLINFO_LOCAL_IP, ip);
+}
+
+CURLcode curl_easy_get_local_port(CURL *handle, long *portp) {
+    return curl_easy_getinfo(handle, CURLINFO_LOCAL_PORT, portp);
+}
+
+CURLcode curl_easy_get_cookielist(CURL *handle,  struct curl_slist **cookies) {
+    return curl_easy_getinfo(handle, CURLINFO_COOKIELIST, cookies);
+}
+
+CURLcode curl_easy_get_lastsocket(CURL *handle, long *socket) {
+    return curl_easy_getinfo(handle, CURLINFO_LASTSOCKET, socket);
+}
+
+CURLcode curl_easy_get_activesocket(CURL *handle, curl_socket_t *socket) {
+    return curl_easy_getinfo(handle, CURLINFO_ACTIVESOCKET, socket);
+}
+
+CURLcode curl_easy_get_activesocket(CURL *handle, curl_socket_t *socket) {
+    return curl_easy_getinfo(handle, CURLINFO_ACTIVESOCKET, socket);
+}
+
+CURLcode curl_easy_get_ftp_entry_path(CURL *handle, char **path) {
+    return curl_easy_getinfo(handle, CURLINFO_FTP_ENTRY_PATH, path);
+}
+
+CURLcode curl_easy_get_tls_ssl_ptr(CURL *handle,  struct curl_tlssessioninfo **session) {
+    return curl_easy_getinfo(handle, CURLINFO_TLS_SSL_PTR, session);
+}
+
+CURLcode curl_easy_get_condition_unmet(CURL *handle, long *unmet) {
+    return curl_easy_getinfo(handle, CURLINFO_CONDITION_UNMET, unmet);
+}
+
+CURLcode curl_easy_get_rtsp_session_id(CURL *handle, char **id) {
+    return curl_easy_getinfo(handle, CURLINFO_RTSP_SESSION_ID, id);
+}
+
+CURLcode curl_easy_get_rtsp_client_cseq(CURL *handle, long *cseq) {
+    return curl_easy_getinfo(handle, CURLINFO_RTSP_CLIENT_CSEQ, cseq);
+}
+
+CURLcode curl_easy_get_rtsp_server_cseq(CURL *handle, long *cseq) {
+    return curl_easy_getinfo(handle, CURLINFO_RTSP_CLIENT_CSEQ, cseq);
+}
+
+CURLcode curl_easy_get_rtsp_cseq_recv(CURL *handle, long *cseq) {
+    return curl_easy_getinfo(handle, CURLINFO_RTSP_CSEQ_RECV, cseq);
+}
+
+CURLcode curl_easy_get_protocol(CURL *handle, long *p) {
+    return curl_easy_getinfo(handle, CURLINFO_PROTOCOL, p);
+}
+
+CURLcode curl_easy_get_scheme(CURL *handle, char **scheme) {
+    return curl_easy_getinfo(handle, CURLINFO_SCHEME, scheme);
+}
+
+//TIMES
+
 
 
 
