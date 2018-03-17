@@ -1094,9 +1094,12 @@ static inline CURLcode curl_set_ssl_options(CURL *handle, long bitmask) {
     return curl_easy_setopt(handle, CURLOPT_SSL_OPTIONS, bitmask);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_ssl_options(CURL *handle, long bitmask) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_OPTIONS, bitmask);
 }
+*/
 
 static inline CURLcode curl_set_krblevel(CURL *handle, char *level) {
     return curl_easy_setopt(handle, CURLOPT_KRBLEVEL, level);
@@ -1180,7 +1183,7 @@ CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
 
 
 CURLcode curl_easy_get_http_version(CURL *handle,  long *p) {
-    return curl_easy_getinfo(handle, CURLINFO_HTTP_VERSION, p);
+    return curl_easy_getinfo(handle, CURLOPT_HTTP_VERSION, p);
 }
 
 CURLcode curl_easy_get_filetime(CURL *handle,  long *p) {
@@ -1229,9 +1232,9 @@ CURLcode curl_easy_get_size_upload(CURL *handle, double *uploadp) {
     return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD, uploadp);
 }
 
-CURLcode curl_easy_get_size_upload_t(CURL *handle, curl_off_t *uploadp) {
-    return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD_T, uploadp);
-}
+// CURLcode curl_easy_get_size_upload_t(CURL *handle, curl_off_t *uploadp) {
+//     return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD_T, uploadp);
+// }
 
 // CURLcode curl_easy_get_size_download_t(CURL *handle, curl_off_t *dlp) {
 //     return curl_easy_getinfo(handle, CURLINFO_SIZE_DOWNLOAD_T, dlp);
@@ -1257,21 +1260,23 @@ CURLcode curl_easy_get_ssl_verifyresult(CURL *handle, long *result) {
     return curl_easy_getinfo(handle, CURLINFO_SSL_VERIFYRESULT, result);
 }
 
+/*
 CURLcode curl_easy_get_proxy_ssl_verifyresult(CURL *handle, long *result) {
     return curl_easy_getinfo(handle, CURLINFO_PROXY_SSL_VERIFYRESULT, result);
 }
+*/
 
 CURLcode curl_easy_get_ssl_engines(CURL *handle, struct curl_slist **engine_list) {
     return curl_easy_getinfo(handle, CURLINFO_SSL_ENGINES, engine_list);
 }
 
-CURLcode curl_easy_get_content_length_download_t(CURL *handle, curl_off_t *content_length) {
-    return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, content_length);
-}
+// CURLcode curl_easy_get_content_length_download_t(CURL *handle, curl_off_t *content_length) {
+//     return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, content_length);
+// }
 
-CURLcode curl_easy_get_content_length_upload_t(CURL *handle, curl_off_t *content_length) {
-    return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_UPLOAD_T, content_length);
-}
+// CURLcode curl_easy_get_content_length_upload_t(CURL *handle, curl_off_t *content_length) {
+//     return curl_easy_getinfo(handle, CURLINFO_CONTENT_LENGTH_UPLOAD_T, content_length);
+// }
 
 CURLcode curl_easy_get_content_type(CURL *handle, char **ct) {
     return curl_easy_getinfo(handle, CURLINFO_CONTENT_TYPE, ct);
@@ -1325,17 +1330,14 @@ CURLcode curl_easy_get_activesocket(CURL *handle, curl_socket_t *socket) {
     return curl_easy_getinfo(handle, CURLINFO_ACTIVESOCKET, socket);
 }
 
-CURLcode curl_easy_get_activesocket(CURL *handle, curl_socket_t *socket) {
-    return curl_easy_getinfo(handle, CURLINFO_ACTIVESOCKET, socket);
-}
 
 CURLcode curl_easy_get_ftp_entry_path(CURL *handle, char **path) {
     return curl_easy_getinfo(handle, CURLINFO_FTP_ENTRY_PATH, path);
 }
 
-CURLcode curl_easy_get_tls_ssl_ptr(CURL *handle,  struct curl_tlssessioninfo **session) {
-    return curl_easy_getinfo(handle, CURLINFO_TLS_SSL_PTR, session);
-}
+// CURLcode curl_easy_get_tls_ssl_ptr(CURL *handle,  struct curl_tlssessioninfo **session) {
+//     return curl_easy_getinfo(handle, CURLINFO_TLS_SSL_PTR, session);
+// }
 
 CURLcode curl_easy_get_condition_unmet(CURL *handle, long *unmet) {
     return curl_easy_getinfo(handle, CURLINFO_CONDITION_UNMET, unmet);
@@ -1357,13 +1359,13 @@ CURLcode curl_easy_get_rtsp_cseq_recv(CURL *handle, long *cseq) {
     return curl_easy_getinfo(handle, CURLINFO_RTSP_CSEQ_RECV, cseq);
 }
 
-CURLcode curl_easy_get_protocol(CURL *handle, long *p) {
-    return curl_easy_getinfo(handle, CURLINFO_PROTOCOL, p);
-}
+// CURLcode curl_easy_get_protocol(CURL *handle, long *p) {
+//     return curl_easy_getinfo(handle, CURLINFO_PROTOCOL, p);
+// }
 
-CURLcode curl_easy_get_scheme(CURL *handle, char **scheme) {
-    return curl_easy_getinfo(handle, CURLINFO_SCHEME, scheme);
-}
+// CURLcode curl_easy_get_scheme(CURL *handle, char **scheme) {
+//     return curl_easy_getinfo(handle, CURLINFO_SCHEME, scheme);
+// }
 
 //TIMES
 
