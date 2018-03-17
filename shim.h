@@ -456,9 +456,12 @@ static inline CURLcode curl_set_tlsauth_password(CURL *handle, char *pwd) {
     return curl_easy_setopt(handle, CURLOPT_TLSAUTH_PASSWORD, pwd);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_tlsauth_password(CURL *handle, char *pwd) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_TLSAUTH_PASSWORD , pwd);
 }
+*/
 
 static inline CURLcode curl_set_tlsauth_type(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_TLSAUTH_TYPE, type);
@@ -905,9 +908,12 @@ static inline CURLcode curl_set_sslcert(CURL *handle, char *cert) {
     return curl_easy_setopt(handle, CURLOPT_SSLCERT, cert);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_sslcert(CURL *handle, char *cert) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERT, cert);
 }
+*/
 
 //TODO: 7.5.1
 /*
@@ -980,10 +986,15 @@ static inline CURLcode curl_set_sslversion(CURL *handle, long version) {
     return curl_easy_setopt(handle, CURLOPT_SSLVERSION, version);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_sslversion(CURL *handle, long version) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLVERSION, version);
 }
+*/
 
+//7.5.1
+/*
 static inline CURLcode curl_set_ssl_verifyhost(CURL *handle, long verify) {
     return curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, verify);
 }
@@ -1003,14 +1014,18 @@ static inline CURLcode curl_set_proxy_ssl_verifypeer(CURL *handle, long verify) 
 static inline CURLcode curl_set_ssl_verifystatus(CURL *handle, long verify) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_VERIFYSTATUS, verify);
 }
+*/
 
 static inline CURLcode curl_set_cainfo(CURL *handle, char *path) {
     return curl_easy_setopt(handle, CURLOPT_CAINFO, path);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_cainfo(CURL *handle, char *path) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_CAINFO, path);
 }
+
 
 static inline CURLcode curl_set_issuercert(CURL *handle, char *file) {
     return curl_easy_setopt(handle, CURLOPT_ISSUERCERT, file);
@@ -1020,9 +1035,11 @@ static inline CURLcode curl_set_capath(CURL *handle, char *capath) {
     return curl_easy_setopt(handle, CURLOPT_CAPATH, capath);
 }
 
+
 static inline CURLcode curl_set_proxy_capath(CURL *handle, char *capath) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_CAPATH, capath);
 }
+*/
 
 static inline CURLcode curl_set_crlfile(CURL *handle, char *file) {
     return curl_easy_setopt(handle, CURLOPT_CRLFILE, file);
