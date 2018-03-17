@@ -24,10 +24,6 @@
 
 typedef size_t (*CurlFunc)(void * ptr, size_t size, size_t num, void * ud);
 
-static inline CURLcode curl_set_url(CURL *handle, const char* url) {
-    return curl_easy_setopt(handle, CURLOPT_URL, url);
-}
-
 //BEHAVIOR OPTIONS
 static inline CURLcode curl_set_verbose(CURL *handle, long onoff) {
     return curl_easy_setopt(handle, CURLOPT_VERBOSE, onoff);
@@ -250,9 +246,11 @@ static inline CURLcode curl_set_failonerror(CURL *handle, long fail) {
     return curl_easy_setopt(handle, CURLOPT_FAILONERROR, fail);
 }
 
+/*
 static inline CURLcode curl_set_keep_sending_on_error(CURL *handle, long keep_sending) {
     return curl_easy_setopt(handle, CURLOPT_KEEP_SENDING_ON_ERROR , keep_sending);
 }
+*/
 
 //NETWORK OPTIONS
 static inline CURLcode curl_set_url(CURL *handle, char* url) {
