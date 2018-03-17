@@ -24,10 +24,23 @@
 
 typedef size_t (*CurlFunc)(void * ptr, size_t size, size_t num, void * ud);
 
+
+//const var 
+static const int CCURLOPT_HEADER = CURLOPT_HEADER;
+
+//functions
+static inline CURLcode curl_easy_setopt_long(CURL *handle, int flag, long onoff) {
+    return curl_easy_setopt(handle, flag, onoff);
+}
+
 //BEHAVIOR OPTIONS
 static inline CURLcode curl_set_verbose(CURL *handle, long onoff) {
     return curl_easy_setopt(handle, CURLOPT_VERBOSE, onoff);
 }
+
+
+
+
 
 static inline CURLcode curl_set_header(CURL *handle, long onoff) {
     return curl_easy_setopt(handle, CURLOPT_HEADER, onoff);
