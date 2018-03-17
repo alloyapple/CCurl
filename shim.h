@@ -1136,6 +1136,12 @@ static inline CURLcode curl_set_ssh_knownhosts(CURL *handle, char *fname) {
     return curl_easy_setopt(handle, CURLOPT_SSH_KNOWNHOSTS, fname);
 }
 
+typedef int (*ssh_keycallback)(CURL *easy,
+                    const struct curl_khkey *knownkey,
+                    const struct curl_khkey *foundkey,
+                    enum curl_khmatch,
+                    void *clientp);
+
 static inline CURLcode curl_set_ssh_keyfunction(CURL *handle, ssh_keycallback *callback) {
     return curl_easy_setopt(handle, CURLOPT_SSH_KEYFUNCTION, callback);
 }
