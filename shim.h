@@ -881,37 +881,52 @@ static inline CURLcode curl_set_proxy_sslcert(CURL *handle, char *cert) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERT, cert);
 }
 
+//TODO: 7.5.1
+/*
 static inline CURLcode curl_set_sslcerttype(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_SSLCERTTYPE, type);
 }
+*/
 
+//TODO: 7.5.1
+/*
 static inline CURLcode curl_set_proxy_sslcerttype(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLCERTTYPE, type);
 }
+*/
 
 static inline CURLcode curl_set_sslkey(CURL *handle, char *keyfile) {
     return curl_easy_setopt(handle, CURLOPT_SSLKEY, keyfile);
 }
 
+//TODO: 7.5.1
+/*
 static inline CURLcode curl_set_proxy_sslkey(CURL *handle, char *keyfile) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLKEY, keyfile);
 }
+*/
 
 static inline CURLcode curl_set_sslkeytype(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_SSLKEYTYPE, type);
 }
 
+//TODO: 7.5.1
+/*
 static inline CURLcode curl_set_proxy_sslkeytype(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSLKEYTYPE, type);
 }
+*/
 
 static inline CURLcode curl_set_keypasswd(CURL *handle, char *pwd) {
     return curl_easy_setopt(handle, CURLOPT_KEYPASSWD, pwd);
 }
 
+//TODO: 7.5.1
+/*
 static inline CURLcode curl_set_proxy_keypasswd(CURL *handle, char *pwd) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_KEYPASSWD, pwd);
 }
+*/
 
 static inline CURLcode curl_set_ssl_enable_alpn(CURL *handle, long npn) {
     return curl_easy_setopt(handle, CURLOPT_SSL_ENABLE_ALPN, npn);
