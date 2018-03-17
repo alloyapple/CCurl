@@ -1045,9 +1045,12 @@ static inline CURLcode curl_set_crlfile(CURL *handle, char *file) {
     return curl_easy_setopt(handle, CURLOPT_CRLFILE, file);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_crlfile(CURL *handle, char *file) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_CRLFILE, file);
 }
+*/
 
 static inline CURLcode curl_set_certinfo(CURL *handle, long certinfo) {
     return curl_easy_setopt(handle, CURLOPT_CERTINFO, certinfo);
@@ -1057,9 +1060,12 @@ static inline CURLcode curl_set_pinnedpublickey(CURL *handle, char *pinnedpubkey
     return curl_easy_setopt(handle, CURLOPT_PINNEDPUBLICKEY, pinnedpubkey);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_pinnedpublickey(CURL *handle, char *pinnedpubkey) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_PINNEDPUBLICKEY, pinnedpubkey);
 }
+*/
 
 static inline CURLcode curl_set_random_file(CURL *handle, char *path) {
     return curl_easy_setopt(handle, CURLOPT_RANDOM_FILE, path);
@@ -1073,13 +1079,12 @@ static inline CURLcode curl_set_ssl_cipher_list(CURL *handle, char *list) {
     return curl_easy_setopt(handle, CURLOPT_SSL_CIPHER_LIST, list);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_ssl_cipher_list(CURL *handle, char *list) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_CIPHER_LIST, list);
 }
-
-static inline CURLcode curl_set_proxy_ssl_cipher_list(CURL *handle, char *list) {
-    return curl_easy_setopt(handle, CURLOPT_PROXY_SSL_CIPHER_LIST, list);
-}
+*/
 
 static inline CURLcode curl_set_ssl_sessionid_cache(CURL *handle, long enabled) {
     return curl_easy_setopt(handle, CURLOPT_SSL_SESSIONID_CACHE, enabled);
@@ -1106,9 +1111,11 @@ static inline CURLcode curl_set_ssh_auth_types(CURL *handle,  long bitmask) {
     return curl_easy_setopt(handle, CURLOPT_SSH_AUTH_TYPES, bitmask);
 }
 
+/*
 static inline CURLcode curl_set_ssh_compression(CURL *handle,  long enable) {
     return curl_easy_setopt(handle, CURLOPT_SSH_COMPRESSION, enable);
 }
+*/
 
 static inline CURLcode curl_set_ssh_host_public_key_md5(CURL *handle, char *md5) {
     return curl_easy_setopt(handle, CURLOPT_SSH_HOST_PUBLIC_KEY_MD5, md5);
@@ -1157,9 +1164,11 @@ static inline CURLcode curl_set_telnetoptions(CURL *handle, struct curl_slist *c
 }
 
 ///curl_easy_getinfo - extract information from a curl handle 
+/*
 CURLcode curl_easy_get_effective_url(CURL *handle, char **urlp) {
     return curl_easy_getinfo(handle, CURLINFO_TELNETOPTIONS, urlp);
-}
+}fvf
+*/
 
 CURLcode curl_easy_get_response_code(CURL *handle,  long *codep) {
     return curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE, codep);
@@ -1169,9 +1178,6 @@ CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
     return curl_easy_getinfo(handle, CURLINFO_HTTP_CONNECTCODE, p);
 }
 
-CURLcode curl_easy_get_http_connectcode(CURL *handle,  long *p) {
-    return curl_easy_getinfo(handle, CURLINFO_HTTP_CONNECTCODE, p);
-}
 
 CURLcode curl_easy_get_http_version(CURL *handle,  long *p) {
     return curl_easy_getinfo(handle, CURLINFO_HTTP_VERSION, p);
@@ -1227,17 +1233,17 @@ CURLcode curl_easy_get_size_upload_t(CURL *handle, curl_off_t *uploadp) {
     return curl_easy_getinfo(handle, CURLINFO_SIZE_UPLOAD_T, uploadp);
 }
 
-CURLcode curl_easy_get_size_download_t(CURL *handle, curl_off_t *dlp) {
-    return curl_easy_getinfo(handle, CURLINFO_SIZE_DOWNLOAD_T, dlp);
-}
+// CURLcode curl_easy_get_size_download_t(CURL *handle, curl_off_t *dlp) {
+//     return curl_easy_getinfo(handle, CURLINFO_SIZE_DOWNLOAD_T, dlp);
+// }
 
-CURLcode curl_easy_get_speed_download_t(CURL *handle, curl_off_t *speed) {
-    return curl_easy_getinfo(handle, CURLINFO_SPEED_DOWNLOAD_T, speed);
-}
+// CURLcode curl_easy_get_speed_download_t(CURL *handle, curl_off_t *speed) {
+//     return curl_easy_getinfo(handle, CURLINFO_SPEED_DOWNLOAD_T, speed);
+// }
 
-CURLcode curl_easy_get_speed_upload_t(CURL *handle, curl_off_t *speed) {
-    return curl_easy_getinfo(handle, CURLINFO_SPEED_UPLOAD_T, speed);
-}
+// CURLcode curl_easy_get_speed_upload_t(CURL *handle, curl_off_t *speed) {
+//     return curl_easy_getinfo(handle, CURLINFO_SPEED_UPLOAD_T, speed);
+// }
 
 CURLcode curl_easy_get_header_size(CURL *handle, long *sizep) {
     return curl_easy_getinfo(handle, CURLINFO_HEADER_SIZE, sizep);
