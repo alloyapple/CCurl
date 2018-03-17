@@ -278,9 +278,12 @@ static inline CURLcode curl_set_proxy(CURL *handle, char *proxy) {
     return curl_easy_setopt(handle, CURLOPT_PROXY , proxy);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_pre_proxy(CURL *handle, char *preproxy) {
     return curl_easy_setopt(handle, CURLOPT_PRE_PROXY , preproxy);
 }
+*/
 
 
 static inline CURLcode curl_set_proxyport(CURL *handle, long port) {
@@ -299,13 +302,20 @@ static inline CURLcode curl_set_httpproxytunnel(CURL *handle,  long tunnel) {
     return curl_easy_setopt(handle, CURLOPT_HTTPPROXYTUNNEL , tunnel);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_connect_to(CURL *handle,  struct curl_slist *connect_to) {
     return curl_easy_setopt(handle, CURLOPT_CONNECT_TO , connect_to);
 }
+*/
 
+
+//7.5.1
+/*
 static inline CURLcode curl_set_socks5_auth(CURL *handle,  long bitmask) {
     return curl_easy_setopt(handle, CURLOPT_SOCKS5_AUTH , bitmask);
 }
+*/
 
 static inline CURLcode curl_set_socks5_gssapi_service(CURL *handle,  char *name) {
     return curl_easy_setopt(handle, CURLOPT_SOCKS5_GSSAPI_SERVICE , name);
@@ -351,9 +361,12 @@ static inline CURLcode curl_set_port(CURL *handle,  long number) {
     return curl_easy_setopt(handle, CURLOPT_PORT , number);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_tcp_fastopen(CURL *handle,  long enable) {
     return curl_easy_setopt(handle, CURLOPT_TCP_FASTOPEN , enable);
 }
+*/
 
 static inline CURLcode curl_set_tcp_nodelay(CURL *handle,  long nodelay) {
     return curl_easy_setopt(handle, CURLOPT_TCP_NODELAY , nodelay);
@@ -379,9 +392,12 @@ static inline CURLcode curl_set_unix_socket_path(CURL *handle, char *path) {
     return curl_easy_setopt(handle, CURLOPT_UNIX_SOCKET_PATH , path);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_abstract_unix_socket(CURL *handle, char *path) {
     return curl_easy_setopt(handle, CURLOPT_ABSTRACT_UNIX_SOCKET , path);
 }
+*/
 
 //NAMES and PASSWORDS OPTIONS (Authentication)
 static inline CURLcode curl_set_netrc(CURL *handle,  long level) {
@@ -401,7 +417,7 @@ static inline CURLcode curl_set_proxyuserpwd(CURL *handle,  char* userpwd) {
 }
 
 static inline CURLcode curl_set_username(CURL *handle,  char* username) {
-    return curl_easy_setopt(handle, CURLOPT_USERNAME, userpwd);
+    return curl_easy_setopt(handle, CURLOPT_USERNAME, username);
 }
 
 static inline CURLcode curl_set_password(CURL *handle,  char* pwd) {
@@ -428,9 +444,13 @@ static inline CURLcode curl_set_tlsauth_username(CURL *handle, char *user) {
     return curl_easy_setopt(handle, CURLOPT_TLSAUTH_USERNAME, user);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_tlsauth_username(CURL *handle, char *user) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_TLSAUTH_USERNAME, user);
 }
+*/
+
 
 static inline CURLcode curl_set_tlsauth_password(CURL *handle, char *pwd) {
     return curl_easy_setopt(handle, CURLOPT_TLSAUTH_PASSWORD, pwd);
@@ -444,9 +464,12 @@ static inline CURLcode curl_set_tlsauth_type(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_TLSAUTH_TYPE, type);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_proxy_tlsauth_type(CURL *handle, char *type) {
     return curl_easy_setopt(handle, CURLOPT_PROXY_TLSAUTH_TYPE, type);
 }
+*/
 
 static inline CURLcode curl_set_proxyauth(CURL *handle, long bitmask) {
     return curl_easy_setopt(handle, CURLOPT_PROXYAUTH, bitmask);
@@ -565,10 +588,12 @@ static inline CURLcode curl_set_httpget(CURL *handle, long useget) {
     return curl_easy_setopt(handle, CURLOPT_HTTPGET, useget);
 }
 
-
+//7.5.1
+/*
 static inline CURLcode curl_set_request_target(CURL *handle, char *target) {
     return curl_easy_setopt(handle, CURLOPT_REQUEST_TARGET, target);
 }
+*/
 
 static inline CURLcode curl_set_http_version(CURL *handle, long version) {
     return curl_easy_setopt(handle, CURLOPT_HTTP_VERSION, version);
@@ -620,9 +645,12 @@ static inline CURLcode curl_set_mail_auth(CURL *handle, char *auth) {
 }
 
 //TFTP OPTIONS
+//7.5.1
+/*
 static inline CURLcode curl_set_tftp_no_options(CURL *handle, long onoff) {
     return curl_easy_setopt(handle, CURLOPT_TFTP_NO_OPTIONS, onoff);
 }
+*/
 
 static inline CURLcode curl_set_tftp_blksize(CURL *handle, long blocksize) {
     return curl_easy_setopt(handle, CURLOPT_TFTP_BLKSIZE, blocksize);
@@ -718,9 +746,6 @@ static inline CURLcode curl_set_rtsp_client_cseq(CURL *handle, long cseq) {
     return curl_easy_setopt(handle, CURLOPT_RTSP_CLIENT_CSEQ, cseq);
 }
 
-static inline CURLcode curl_set_rtsp_client_cseq(CURL *handle, long cseq) {
-    return curl_easy_setopt(handle, CURLOPT_RTSP_SERVER_CSEQ, cseq);
-}
 
 //PROTOCOL OPTIONS
 static inline CURLcode curl_set_transfertext(CURL *handle, long text) {
@@ -771,9 +796,12 @@ static inline CURLcode curl_set_upload(CURL *handle, long upload) {
     return curl_easy_setopt(handle, CURLOPT_UPLOAD, upload);
 }
 
+//7.5.1
+/*
 static inline CURLcode curl_set_mimepost(CURL *handle, curl_mime *mime) {
     return curl_easy_setopt(handle, CURLOPT_MIMEPOST, mime);
 }
+*/
 
 static inline CURLcode curl_set_maxfilesize(CURL *handle, long size) {
     return curl_easy_setopt(handle, CURLOPT_MAXFILESIZE, size);
