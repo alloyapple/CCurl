@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corporation 2016
+ * Copyright Alloy.Apple Corporation 2016
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,341 +24,95 @@
 
 typedef size_t (*CurlFunc)(void * ptr, size_t size, size_t num, void * ud);
 
-
-//const var 
-static const int CCURLOPT_VERBOSE = CURLOPT_VERBOSE;
-static const int CCURLOPT_HEADER = CURLOPT_HEADER;
-static const int CCURLOPT_NOPROGRESS = CURLOPT_NOPROGRESS;
-static const int CCURLOPT_NOSIGNAL = CURLOPT_NOSIGNAL;
-static const int CCURLOPT_WILDCARDMATCH = CURLOPT_WILDCARDMATCH;
-static const int CCURLOPT_WRITEFUNCTION = CURLOPT_WRITEFUNCTION;
-static const int CCURLOPT_WRITEDATA = CURLOPT_WRITEDATA;
-static const int CCURLOPT_READFUNCTION = CURLOPT_READFUNCTION;
-static const int CCURLOPT_READDATA = CURLOPT_READDATA;
-static const int CCURLOPT_IOCTLFUNCTION = CURLOPT_IOCTLFUNCTION;
-static const int CCURLOPT_IOCTLDATA = CURLOPT_IOCTLDATA;
-static const int CCURLOPT_SEEKFUNCTION = CURLOPT_SEEKFUNCTION;
-static const int CCURLOPT_SEEKDATA = CURLOPT_SEEKDATA;
-static const int CCURLOPT_SOCKOPTFUNCTION = CURLOPT_SOCKOPTFUNCTION;
-static const int CCURLOPT_SOCKOPTDATA = CURLOPT_SOCKOPTDATA;
-static const int CCURLOPT_OPENSOCKETFUNCTION = CURLOPT_OPENSOCKETFUNCTION;
-static const int CCURLOPT_OPENSOCKETDATA = CURLOPT_OPENSOCKETDATA;
-static const int CCURLOPT_CLOSESOCKETFUNCTION = CURLOPT_CLOSESOCKETFUNCTION;
-static const int CCURLOPT_CLOSESOCKETDATA = CURLOPT_CLOSESOCKETDATA;
-static const int CCURLOPT_PROGRESSFUNCTION = CURLOPT_PROGRESSFUNCTION;
-static const int CCURLOPT_PROGRESSDATA = CURLOPT_PROGRESSDATA;
-static const int CCURLOPT_XFERINFOFUNCTION = CURLOPT_XFERINFOFUNCTION;
-static const int CCURLOPT_XFERINFODATA = CURLOPT_XFERINFODATA;
-static const int CCURLOPT_HEADERFUNCTION = CURLOPT_HEADERFUNCTION;
-static const int CCURLOPT_HEADERDATA = CURLOPT_HEADERDATA;
-static const int CCURLOPT_DEBUGFUNCTION = CURLOPT_DEBUGFUNCTION;
-static const int CCURLOPT_DEBUGDATA = CURLOPT_DEBUGDATA;
-static const int CCURLOPT_SSL_CTX_FUNCTION = CURLOPT_SSL_CTX_FUNCTION; 
-static const int CCURLOPT_SSL_CTX_DATA = CURLOPT_SSL_CTX_DATA; 
-static const int CCURLOPT_CONV_TO_NETWORK_FUNCTION = CURLOPT_CONV_TO_NETWORK_FUNCTION; 
-static const int CCURLOPT_CONV_FROM_NETWORK_FUNCTION = CURLOPT_CONV_FROM_NETWORK_FUNCTION; 
-static const int CCURLOPT_CONV_FROM_UTF8_FUNCTION = CURLOPT_CONV_FROM_UTF8_FUNCTION; 
-static const int CCURLOPT_INTERLEAVEFUNCTION = CURLOPT_INTERLEAVEFUNCTION; 
-static const int CCURLOPT_INTERLEAVEDATA = CURLOPT_INTERLEAVEDATA; 
-static const int CCURLOPT_CHUNK_BGN_FUNCTION = CURLOPT_CHUNK_BGN_FUNCTION; 
-static const int CCURLOPT_CHUNK_END_FUNCTION = CURLOPT_CHUNK_END_FUNCTION; 
-static const int CCURLOPT_CHUNK_DATA = CURLOPT_CHUNK_DATA; 
-static const int CCURLOPT_FNMATCH_FUNCTION = CURLOPT_FNMATCH_FUNCTION; 
-static const int CCURLOPT_FNMATCH_DATA = CURLOPT_FNMATCH_DATA; 
-static const int CCURLOPT_ERRORBUFFER = CURLOPT_ERRORBUFFER; 
-static const int CCURLOPT_STDERR = CURLOPT_STDERR; 
-static const int CCURLOPT_FAILONERROR = CURLOPT_FAILONERROR; 
-static const int CCURLOPT_KEEP_SENDING_ON_ERROR = CURLOPT_KEEP_SENDING_ON_ERROR; 
-static const int CCURLOPT_URL = CURLOPT_URL; 
-static const int CCURLOPT_PATH_AS_IS = CURLOPT_PATH_AS_IS; 
-static const int CCURLOPT_PROTOCOLS = CURLOPT_PROTOCOLS; 
-static const int CCURLOPT_REDIR_PROTOCOLS = CURLOPT_REDIR_PROTOCOLS; 
-static const int CCURLOPT_DEFAULT_PROTOCOL = CURLOPT_DEFAULT_PROTOCOL; 
-static const int CCURLOPT_PROXY = CURLOPT_PROXY; 
-static const int CCURLOPT_PRE_PROXY = CURLOPT_PRE_PROXY; 
-static const int CCURLOPT_PROXYPORT = CURLOPT_PROXYPORT; 
-static const int CCURLOPT_PROXYTYPE = CURLOPT_PROXYTYPE; 
-static const int CCURLOPT_NOPROXY = CURLOPT_NOPROXY; 
-static const int CCURLOPT_HTTPPROXYTUNNEL = CURLOPT_HTTPPROXYTUNNEL; 
-static const int CCURLOPT_CONNECT_TO = CURLOPT_CONNECT_TO; 
-static const int CCURLOPT_SOCKS5_AUTH = CURLOPT_SOCKS5_AUTH; 
-static const int CCURLOPT_SOCKS5_GSSAPI_SERVICE = CURLOPT_SOCKS5_GSSAPI_SERVICE; 
-static const int CCURLOPT_SOCKS5_GSSAPI_NEC = CURLOPT_SOCKS5_GSSAPI_NEC; 
-static const int CCURLOPT_PROXY_SERVICE_NAME = CURLOPT_PROXY_SERVICE_NAME; 
-static const int CCURLOPT_SERVICE_NAME = CURLOPT_SERVICE_NAME; 
-static const int CCURLOPT_INTERFACE = CURLOPT_INTERFACE; 
-static const int CCURLOPT_LOCALPORT = CURLOPT_LOCALPORT; 
-static const int CCURLOPT_LOCALPORTRANGE = CURLOPT_LOCALPORTRANGE; 
-static const int CCURLOPT_DNS_CACHE_TIMEOUT = CURLOPT_DNS_CACHE_TIMEOUT; 
-static const int CCURLOPT_DNS_USE_GLOBAL_CACHE = CURLOPT_DNS_USE_GLOBAL_CACHE; 
-static const int CCURLOPT_BUFFERSIZE = CURLOPT_BUFFERSIZE; 
-static const int CCURLOPT_PORT = CURLOPT_PORT; 
-static const int CCURLOPT_TCP_FASTOPEN = CURLOPT_TCP_FASTOPEN; 
-static const int CCURLOPT_TCP_NODELAY = CURLOPT_TCP_NODELAY; 
-static const int CCURLOPT_ADDRESS_SCOPE = CURLOPT_ADDRESS_SCOPE; 
-static const int CCURLOPT_TCP_KEEPALIVE = CURLOPT_TCP_KEEPALIVE; 
-static const int CCURLOPT_TCP_KEEPIDLE = CURLOPT_TCP_KEEPIDLE; 
-static const int CCURLOPT_TCP_KEEPINTVL = CURLOPT_TCP_KEEPINTVL; 
-static const int CCURLOPT_UNIX_SOCKET_PATH = CURLOPT_UNIX_SOCKET_PATH; 
-static const int CCURLOPT_ABSTRACT_UNIX_SOCKET = CURLOPT_ABSTRACT_UNIX_SOCKET; 
-static const int CCURLOPT_NETRC = CURLOPT_NETRC; 
-static const int CCURLOPT_NETRC_FILE = CURLOPT_NETRC_FILE; 
-static const int CCURLOPT_USERPWD = CURLOPT_USERPWD; 
-static const int CCURLOPT_PROXYUSERPWD = CURLOPT_PROXYUSERPWD; 
-static const int CCURLOPT_USERNAME = CURLOPT_USERNAME; 
-static const int CCURLOPT_PASSWORD = CURLOPT_PASSWORD; 
-static const int CCURLOPT_LOGIN_OPTIONS = CURLOPT_LOGIN_OPTIONS; 
-static const int CCURLOPT_PROXYUSERNAME = CURLOPT_PROXYUSERNAME; 
-static const int CCURLOPT_PROXYPASSWORD = CURLOPT_PROXYPASSWORD; 
-static const int CCURLOPT_HTTPAUTH = CURLOPT_HTTPAUTH; 
-static const int CCURLOPT_TLSAUTH_USERNAME = CURLOPT_TLSAUTH_USERNAME; 
-static const int CCURLOPT_PROXY_TLSAUTH_USERNAME = CURLOPT_PROXY_TLSAUTH_USERNAME; 
-static const int CCURLOPT_TLSAUTH_PASSWORD = CURLOPT_TLSAUTH_PASSWORD; 
-static const int CCURLOPT_PROXY_TLSAUTH_PASSWORD = CURLOPT_PROXY_TLSAUTH_PASSWORD; 
-static const int CCURLOPT_TLSAUTH_TYPE = CURLOPT_TLSAUTH_TYPE; 
-static const int CCURLOPT_PROXY_TLSAUTH_TYPE = CURLOPT_PROXY_TLSAUTH_TYPE; 
-static const int CCURLOPT_PROXYAUTH = CURLOPT_PROXYAUTH; 
-static const int CCURLOPT_SASL_IR = CURLOPT_SASL_IR; 
-static const int CCURLOPT_XOAUTH2_BEARER = CURLOPT_XOAUTH2_BEARER; 
-static const int CCURLOPT_AUTOREFERER = CURLOPT_AUTOREFERER; 
-static const int CCURLOPT_ACCEPT_ENCODING = CURLOPT_ACCEPT_ENCODING; 
-static const int CCURLOPT_TRANSFER_ENCODING = CURLOPT_TRANSFER_ENCODING; 
-static const int CCURLOPT_FOLLOWLOCATION = CURLOPT_FOLLOWLOCATION; 
-static const int CCURLOPT_UNRESTRICTED_AUTH = CURLOPT_UNRESTRICTED_AUTH; 
-static const int CCURLOPT_MAXREDIRS = CURLOPT_MAXREDIRS; 
-static const int CCURLOPT_POSTREDIR = CURLOPT_POSTREDIR; 
-static const int CCURLOPT_PUT = CURLOPT_PUT; 
-static const int CCURLOPT_POST = CURLOPT_POST; 
-static const int CCURLOPT_POSTFIELDS = CURLOPT_POSTFIELDS; 
-static const int CCURLOPT_POSTFIELDSIZE = CURLOPT_POSTFIELDSIZE; 
-static const int CCURLOPT_POSTFIELDSIZE_LARGE = CURLOPT_POSTFIELDSIZE_LARGE; 
-static const int CCURLOPT_COPYPOSTFIELDS = CURLOPT_COPYPOSTFIELDS; 
-static const int CCURLOPT_HTTPPOST = CURLOPT_HTTPPOST; 
-static const int CCURLOPT_REFERER = CURLOPT_REFERER; 
-static const int CCURLOPT_USERAGENT = CURLOPT_USERAGENT; 
-static const int CCURLOPT_HTTPHEADER = CURLOPT_HTTPHEADER; 
-static const int CCURLOPT_HEADEROPT = CURLOPT_HEADEROPT; 
-static const int CCURLOPT_PROXYHEADER = CURLOPT_PROXYHEADER; 
-static const int CCURLOPT_HTTP200ALIASES = CURLOPT_HTTP200ALIASES; 
-static const int CCURLOPT_COOKIE = CURLOPT_COOKIE; 
-static const int CCURLOPT_COOKIEFILE = CURLOPT_COOKIEFILE; 
-static const int CCURLOPT_COOKIEJAR = CURLOPT_COOKIEJAR; 
-static const int CCURLOPT_COOKIESESSION = CURLOPT_COOKIESESSION; 
-static const int CCURLOPT_COOKIELIST = CURLOPT_COOKIELIST; 
-static const int CCURLOPT_HTTPGET = CURLOPT_HTTPGET; 
-static const int CCURLOPT_REQUEST_TARGET = CURLOPT_REQUEST_TARGET; 
-static const int CCURLOPT_HTTP_VERSION = CURLOPT_HTTP_VERSION; 
-static const int CCURLOPT_IGNORE_CONTENT_LENGTH = CURLOPT_IGNORE_CONTENT_LENGTH; 
-static const int CCURLOPT_HTTP_CONTENT_DECODING = CURLOPT_HTTP_CONTENT_DECODING; 
-static const int CCURLOPT_HTTP_TRANSFER_DECODING = CURLOPT_HTTP_TRANSFER_DECODING; 
-static const int CCURLOPT_EXPECT_100_TIMEOUT_MS = CURLOPT_EXPECT_100_TIMEOUT_MS; 
-static const int CCURLOPT_PIPEWAIT = CURLOPT_PIPEWAIT; 
-static const int CCURLOPT_STREAM_DEPENDS = CURLOPT_STREAM_DEPENDS; 
-static const int CCURLOPT_STREAM_DEPENDS_E = CURLOPT_STREAM_DEPENDS_E; 
-static const int CCURLOPT_STREAM_WEIGHT = CURLOPT_STREAM_WEIGHT; 
-static const int CCURLOPT_MAIL_FROM = CURLOPT_MAIL_FROM; 
-static const int CCURLOPT_MAIL_RCPT = CURLOPT_MAIL_RCPT; 
-static const int CCURLOPT_MAIL_AUTH = CURLOPT_MAIL_AUTH; 
-static const int CCURLOPT_TFTP_NO_OPTIONS = CURLOPT_TFTP_NO_OPTIONS; 
-static const int CCURLOPT_TFTP_BLKSIZE = CURLOPT_TFTP_BLKSIZE; 
-static const int CCURLOPT_FTPPORT = CURLOPT_FTPPORT; 
-static const int CCURLOPT_QUOTE = CURLOPT_QUOTE; 
-static const int CCURLOPT_POSTQUOTE = CURLOPT_POSTQUOTE; 
-static const int CCURLOPT_PREQUOTE = CURLOPT_PREQUOTE; 
-static const int CCURLOPT_APPEND = CURLOPT_APPEND; 
-static const int CCURLOPT_FTP_USE_EPRT = CURLOPT_FTP_USE_EPRT; 
-static const int CCURLOPT_FTP_USE_EPSV = CURLOPT_FTP_USE_EPSV; 
-static const int CCURLOPT_FTP_USE_PRET = CURLOPT_FTP_USE_PRET; 
-static const int CCURLOPT_FTP_CREATE_MISSING_DIRS = CURLOPT_FTP_CREATE_MISSING_DIRS; 
-static const int CCURLOPT_FTP_RESPONSE_TIMEOUT = CURLOPT_FTP_RESPONSE_TIMEOUT; 
-static const int CCURLOPT_FTP_ALTERNATIVE_TO_USER = CURLOPT_FTP_ALTERNATIVE_TO_USER; 
-static const int CCURLOPT_FTP_SKIP_PASV_IP = CURLOPT_FTP_SKIP_PASV_IP; 
-static const int CCURLOPT_FTPSSLAUTH = CURLOPT_FTPSSLAUTH; 
-static const int CCURLOPT_FTP_SSL_CCC = CURLOPT_FTP_SSL_CCC; 
-static const int CCURLOPT_FTP_ACCOUNT = CURLOPT_FTP_ACCOUNT; 
-static const int CCURLOPT_FTP_FILEMETHOD = CURLOPT_FTP_FILEMETHOD; 
-static const int CCURLOPT_RTSP_REQUEST = CURLOPT_RTSP_REQUEST; 
-static const int CCURLOPT_RTSP_SESSION_ID = CURLOPT_RTSP_SESSION_ID; 
-static const int CCURLOPT_RTSP_STREAM_URI = CURLOPT_RTSP_STREAM_URI; 
-static const int CCURLOPT_RTSP_TRANSPORT = CURLOPT_RTSP_TRANSPORT; 
-static const int CCURLOPT_RTSP_CLIENT_CSEQ = CURLOPT_RTSP_CLIENT_CSEQ; 
-static const int CCURLOPT_TRANSFERTEXT = CURLOPT_TRANSFERTEXT; 
-static const int CCURLOPT_PROXY_TRANSFER_MODE = CURLOPT_PROXY_TRANSFER_MODE; 
-static const int CCURLOPT_CRLF = CURLOPT_CRLF; 
-static const int CCURLOPT_RANGE = CURLOPT_RANGE; 
-static const int CCURLOPT_RESUME_FROM = CURLOPT_RESUME_FROM; 
-static const int CCURLOPT_RESUME_FROM_LARGE = CURLOPT_RESUME_FROM_LARGE; 
-static const int CCURLOPT_CUSTOMREQUEST = CURLOPT_CUSTOMREQUEST; 
-static const int CCURLOPT_FILETIME = CURLOPT_FILETIME; 
-static const int CCURLOPT_DIRLISTONLY = CURLOPT_DIRLISTONLY; 
-static const int CCURLOPT_NOBODY = CURLOPT_NOBODY; 
-static const int CCURLOPT_INFILESIZE = CURLOPT_INFILESIZE; 
-static const int CCURLOPT_UPLOAD = CURLOPT_UPLOAD; 
-static const int CCURLOPT_MIMEPOST = CURLOPT_MIMEPOST; 
-static const int CCURLOPT_MAXFILESIZE = CURLOPT_MAXFILESIZE; 
-static const int CCURLOPT_MAXFILESIZE_LARGE = CURLOPT_MAXFILESIZE_LARGE; 
-static const int CCURLOPT_TIMECONDITION = CURLOPT_TIMECONDITION; 
-static const int CCURLOPT_TIMEVALUE = CURLOPT_TIMEVALUE; 
-static const int CCURLOPT_TIMEOUT = CURLOPT_TIMEOUT; 
-static const int CCURLOPT_TIMEOUT_MS = CURLOPT_TIMEOUT_MS; 
-static const int CCURLOPT_LOW_SPEED_LIMIT = CURLOPT_LOW_SPEED_LIMIT; 
-static const int CCURLOPT_LOW_SPEED_TIME = CURLOPT_LOW_SPEED_TIME; 
-static const int CCURLOPT_MAX_SEND_SPEED_LARGE = CURLOPT_MAX_SEND_SPEED_LARGE; 
-static const int CCURLOPT_MAX_RECV_SPEED_LARGE = CURLOPT_MAX_RECV_SPEED_LARGE; 
-static const int CCURLOPT_MAXCONNECTS = CURLOPT_MAXCONNECTS; 
-static const int CCURLOPT_FRESH_CONNECT = CURLOPT_FRESH_CONNECT; 
-static const int CCURLOPT_FORBID_REUSE = CURLOPT_FORBID_REUSE; 
-static const int CCURLOPT_CONNECTTIMEOUT = CURLOPT_CONNECTTIMEOUT; 
-static const int CCURLOPT_CONNECTTIMEOUT_MS = CURLOPT_CONNECTTIMEOUT_MS; 
-static const int CCURLOPT_IPRESOLVE = CURLOPT_IPRESOLVE; 
-static const int CCURLOPT_CONNECT_ONLY = CURLOPT_CONNECT_ONLY; 
-static const int CCURLOPT_USE_SSL = CURLOPT_USE_SSL; 
-static const int CCURLOPT_RESOLVE = CURLOPT_RESOLVE; 
-static const int CCURLOPT_DNS_INTERFACE = CURLOPT_DNS_INTERFACE; 
-static const int CCURLOPT_DNS_LOCAL_IP4 = CURLOPT_DNS_LOCAL_IP4; 
-static const int CCURLOPT_DNS_LOCAL_IP6 = CURLOPT_DNS_LOCAL_IP6; 
-static const int CCURLOPT_DNS_SERVERS = CURLOPT_DNS_SERVERS; 
-static const int CCURLOPT_ACCEPTTIMEOUT_MS = CURLOPT_ACCEPTTIMEOUT_MS; 
-static const int CCURLOPT_SSLCERT = CURLOPT_SSLCERT; 
-static const int CCURLOPT_PROXY_SSLCERT = CURLOPT_PROXY_SSLCERT; 
-static const int CCURLOPT_SSLCERTTYPE = CURLOPT_SSLCERTTYPE; 
-static const int CCURLOPT_PROXY_SSLCERTTYPE = CURLOPT_PROXY_SSLCERTTYPE; 
-static const int CCURLOPT_SSLKEY = CURLOPT_SSLKEY; 
-static const int CCURLOPT_PROXY_SSLKEY = CURLOPT_PROXY_SSLKEY; 
-static const int CCURLOPT_SSLKEYTYPE = CURLOPT_SSLKEYTYPE; 
-static const int CCURLOPT_PROXY_SSLKEYTYPE = CURLOPT_PROXY_SSLKEYTYPE; 
-static const int CCURLOPT_KEYPASSWD = CURLOPT_KEYPASSWD; 
-static const int CCURLOPT_PROXY_KEYPASSWD = CURLOPT_PROXY_KEYPASSWD; 
-static const int CCURLOPT_SSL_ENABLE_ALPN = CURLOPT_SSL_ENABLE_ALPN; 
-static const int CCURLOPT_SSL_ENABLE_NPN = CURLOPT_SSL_ENABLE_NPN; 
-static const int CCURLOPT_SSLENGINE = CURLOPT_SSLENGINE; 
-static const int CCURLOPT_SSLENGINE_DEFAULT = CURLOPT_SSLENGINE_DEFAULT; 
-static const int CCURLOPT_SSL_FALSESTART = CURLOPT_SSL_FALSESTART; 
-static const int CCURLOPT_SSLVERSION = CURLOPT_SSLVERSION; 
-static const int CCURLOPT_PROXY_SSLVERSION = CURLOPT_PROXY_SSLVERSION; 
-static const int CCURLOPT_SSL_VERIFYHOST = CURLOPT_SSL_VERIFYHOST; 
-static const int CCURLOPT_PROXY_SSL_VERIFYHOST = CURLOPT_PROXY_SSL_VERIFYHOST; 
-static const int CCURLOPT_SSL_VERIFYPEER = CURLOPT_SSL_VERIFYPEER; 
-static const int CCURLOPT_PROXY_SSL_VERIFYPEER = CURLOPT_PROXY_SSL_VERIFYPEER; 
-static const int CCURLOPT_PROXY_SSL_VERIFYSTATUS = CURLOPT_PROXY_SSL_VERIFYSTATUS; 
-static const int CCURLOPT_CAINFO = CURLOPT_CAINFO; 
-static const int CCURLOPT_PROXY_CAINFO = CURLOPT_PROXY_CAINFO; 
-static const int CCURLOPT_ISSUERCERT = CURLOPT_ISSUERCERT; 
-static const int CCURLOPT_CAPATH = CURLOPT_CAPATH; 
-static const int CCURLOPT_PROXY_CAPATH = CURLOPT_PROXY_CAPATH; 
-static const int CCURLOPT_CRLFILE = CURLOPT_CRLFILE; 
-static const int CCURLOPT_PROXY_CRLFILE = CURLOPT_PROXY_CRLFILE; 
-static const int CCURLOPT_CERTINFO = CURLOPT_CERTINFO; 
-static const int CCURLOPT_PINNEDPUBLICKEY = CURLOPT_PINNEDPUBLICKEY; 
-static const int CCURLOPT_PROXY_PINNEDPUBLICKEY = CURLOPT_PROXY_PINNEDPUBLICKEY; 
-static const int CCURLOPT_RANDOM_FILE = CURLOPT_RANDOM_FILE; 
-static const int CCURLOPT_EGDSOCKET = CURLOPT_EGDSOCKET; 
-static const int CCURLOPT_SSL_CIPHER_LIST = CURLOPT_SSL_CIPHER_LIST; 
-static const int CCURLOPT_PROXY_SSL_CIPHER_LIST = CURLOPT_PROXY_SSL_CIPHER_LIST; 
-static const int CCURLOPT_SSL_SESSIONID_CACHE = CURLOPT_SSL_SESSIONID_CACHE; 
-static const int CCURLOPT_SSL_OPTIONS = CURLOPT_SSL_OPTIONS; 
-static const int CCURLOPT_PROXY_SSL_OPTIONS = CURLOPT_PROXY_SSL_OPTIONS; 
-static const int CCURLOPT_KRBLEVEL = CURLOPT_KRBLEVEL; 
-static const int CCURLOPT_GSSAPI_DELEGATION = CURLOPT_GSSAPI_DELEGATION; 
-static const int CCURLOPT_SSH_AUTH_TYPES = CURLOPT_SSH_AUTH_TYPES; 
-static const int CCURLOPT_SSH_COMPRESSION = CURLOPT_SSH_COMPRESSION; 
-static const int CCURLOPT_SSH_HOST_PUBLIC_KEY_MD5 = CURLOPT_SSH_HOST_PUBLIC_KEY_MD5; 
-static const int CCURLOPT_SSH_PUBLIC_KEYFILE = CURLOPT_SSH_PUBLIC_KEYFILE; 
-static const int CCURLOPT_SSH_PRIVATE_KEYFILE = CURLOPT_SSH_PRIVATE_KEYFILE; 
-static const int CCURLOPT_SSH_KNOWNHOSTS = CURLOPT_SSH_KNOWNHOSTS; 
-static const int CCURLOPT_SSH_KEYFUNCTION = CURLOPT_SSH_KEYFUNCTION; 
-static const int CCURLOPT_SSH_KEYDATA = CURLOPT_SSH_KEYDATA; 
-static const int CCURLOPT_PRIVATE = CURLOPT_PRIVATE; 
-static const int CCURLOPT_SHARE = CURLOPT_SHARE; 
-static const int CCURLOPT_NEW_FILE_PERMS = CURLOPT_NEW_FILE_PERMS; 
-static const int CCURLOPT_NEW_DIRECTORY_PERMS = CURLOPT_NEW_DIRECTORY_PERMS; 
-static const int CCURLOPT_TELNETOPTIONS = CURLOPT_TELNETOPTIONS; 
-static const int CCURLINFO_TELNETOPTIONS = CURLINFO_TELNETOPTIONS; 
-static const int CCURLINFO_RESPONSE_CODE = CURLINFO_RESPONSE_CODE; 
-static const int CCURLINFO_HTTP_CONNECTCODE = CURLINFO_HTTP_CONNECTCODE; 
-static const int CCURLOPT_HTTP_VERSION = CURLOPT_HTTP_VERSION; 
-static const int CCURLINFO_FILETIME = CURLINFO_FILETIME; 
-static const int CCURLINFO_TOTAL_TIME = CURLINFO_TOTAL_TIME; 
-static const int CCURLINFO_NAMELOOKUP_TIME = CURLINFO_NAMELOOKUP_TIME; 
-static const int CCURLINFO_CONNECT_TIME = CURLINFO_CONNECT_TIME; 
-static const int CCURLINFO_APPCONNECT_TIME = CURLINFO_APPCONNECT_TIME; 
-static const int CCURLINFO_PRETRANSFER_TIME = CURLINFO_PRETRANSFER_TIME; 
-static const int CCURLINFO_STARTTRANSFER_TIME = CURLINFO_STARTTRANSFER_TIME; 
-static const int CCURLINFO_REDIRECT_TIME = CURLINFO_REDIRECT_TIME; 
-static const int CCURLINFO_REDIRECT_COUNT = CURLINFO_REDIRECT_COUNT; 
-static const int CCURLINFO_REDIRECT_URL = CURLINFO_REDIRECT_URL; 
-static const int CCURLINFO_SIZE_UPLOAD = CURLINFO_SIZE_UPLOAD; 
-static const int CCURLINFO_HEADER_SIZE = CURLINFO_HEADER_SIZE; 
-static const int CCURLINFO_REQUEST_SIZE = CURLINFO_REQUEST_SIZE; 
-static const int CCURLINFO_SSL_VERIFYRESULT = CURLINFO_SSL_VERIFYRESULT; 
-static const int CCURLINFO_PROXY_SSL_VERIFYRESULT = CURLINFO_PROXY_SSL_VERIFYRESULT; 
-static const int CCURLINFO_SSL_ENGINES = CURLINFO_SSL_ENGINES; 
-static const int CCURLINFO_CONTENT_TYPE = CURLINFO_CONTENT_TYPE; 
-static const int CCURLINFO_PRIVATE = CURLINFO_PRIVATE; 
-static const int CCURLINFO_HTTPAUTH_AVAIL = CURLINFO_HTTPAUTH_AVAIL; 
-static const int CCURLINFO_PROXYAUTH_AVAIL = CURLINFO_PROXYAUTH_AVAIL; 
-static const int CCURLINFO_OS_ERRNO = CURLINFO_OS_ERRNO; 
-static const int CCURLINFO_NUM_CONNECTS = CURLINFO_NUM_CONNECTS; 
-static const int CCURLINFO_PRIMARY_IP = CURLINFO_PRIMARY_IP; 
-static const int CCURLINFO_PRIMARY_PORT = CURLINFO_PRIMARY_PORT; 
-static const int CCURLINFO_LOCAL_IP = CURLINFO_LOCAL_IP; 
-static const int CCURLINFO_LOCAL_PORT = CURLINFO_LOCAL_PORT; 
-static const int CCURLINFO_COOKIELIST = CURLINFO_COOKIELIST; 
-static const int CCURLINFO_LASTSOCKET = CURLINFO_LASTSOCKET; 
-static const int CCURLINFO_ACTIVESOCKET = CURLINFO_ACTIVESOCKET; 
-static const int CCURLINFO_FTP_ENTRY_PATH = CURLINFO_FTP_ENTRY_PATH; 
-static const int CCURLINFO_CONDITION_UNMET = CURLINFO_CONDITION_UNMET; 
-static const int CCURLINFO_RTSP_SESSION_ID = CURLINFO_RTSP_SESSION_ID; 
-static const int CCURLINFO_RTSP_CLIENT_CSEQ = CURLINFO_RTSP_CLIENT_CSEQ; 
-static const int CCURLINFO_RTSP_CLIENT_CSEQ = CURLINFO_RTSP_CLIENT_CSEQ; 
-static const int CCURLINFO_RTSP_CSEQ_RECV = CURLINFO_RTSP_CSEQ_RECV; 
-
-//functions
-static inline CURLcode curl_easy_setopt_long(CURL *handle, int flag, long onoff) {
-    return curl_easy_setopt(handle, flag, onoff);
+//BEHAVIOR OPTIONS
+static inline CURLcode curl_set_verbose(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_VERBOSE, onoff);
 }
 
+static inline CURLcode curl_set_header(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_HEADER, onoff);
+}
+
+static inline CURLcode curl_set_noprogress(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_NOPROGRESS, onoff);
+}
+
+static inline CURLcode curl_set_nosignal(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_NOSIGNAL, onoff);
+}
+
+static inline CURLcode curl_set_wildcardmatch(CURL *handle, long onoff) {
+    return curl_easy_setopt(handle, CURLOPT_WILDCARDMATCH, onoff);
+}
+
+
+//CALLBACK OPTIONS
 typedef size_t (*write_callback)(char *ptr, size_t size, size_t nmemb, void *userdata);
-static inline CURLcode curl_easy_setopt_writefunction(CURL *handle, int flag, write_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_writefunction(CURL *handle, write_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, callback);
 }
 
-static inline CURLcode curl_set_writedata(CURL *handle, int flag, void* pointer) {
-    return curl_easy_setopt(handle, flag, pointer);
+static inline CURLcode curl_set_writedata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(handle, CURLOPT_WRITEDATA, pointer);
 }
 
 typedef size_t (*read_callback)(char *buffer, size_t size, size_t nitems, void *instream);
-static inline CURLcode curl_easy_setopt_readfunction(CURL *handle, int flag, read_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_readfunction(CURL *handle, read_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_READFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_readdata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(handle, CURLOPT_READDATA, pointer);
 }
 
 typedef curlioerr (*ioctl_callback)(CURL *handle, int cmd, void *clientp);
-static inline CURLcode curl_easy_setopt_ioctlfunction(CURL *handle, int flag, ioctl_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_ioctlfunction(CURL *handle, ioctl_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_IOCTLFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_ioctldata(CURL *handle, void* pointer) {
+    return curl_easy_setopt(handle, CURLOPT_IOCTLDATA, pointer);
 }
 
 typedef int (*seek_callback)(void *userp, curl_off_t offset, int origin);
-static inline CURLcode curl_easy_setopt_seekfunction(CURL *handle, int flag, seek_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_seekfunction(CURL *handle, seek_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_SEEKFUNCTION, callback);
+}
+
+
+static inline CURLcode curl_set_seekdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_SEEKDATA, pointer);
 }
 
 typedef int (*sockopt_callback)(void *clientp,
                      curl_socket_t curlfd,
                      curlsocktype purpose);
-static inline CURLcode curl_easy_setopt_sockoptfunction(CURL *handle, int flag, sockopt_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_sockoptfunction(CURL *handle, sockopt_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_SOCKOPTFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_sockoptdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_SOCKOPTDATA, pointer);
 }
 
 typedef curl_socket_t (*opensocket_callback)(void *clientp,
                                   curlsocktype purpose,
                                   struct curl_sockaddr *address);
-static inline CURLcode curl_easy_setopt_opensocketfunction(CURL *handle, int flag, opensocket_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_opensocketfunction(CURL *handle, opensocket_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_OPENSOCKETFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_opensocketdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_OPENSOCKETDATA, pointer);
 }
 
 typedef int (*closesocket_callback)(void *clientp, curl_socket_t item);
-static inline CURLcode curl_easy_setopt_closesocketfunction(CURL *handle, int flag, closesocket_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_closesocketfunction(CURL *handle, closesocket_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_CLOSESOCKETFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_closesocketdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_CLOSESOCKETDATA, pointer);
 }
 
 typedef int (*progress_callback)(void *clientp,   
@@ -366,16 +120,33 @@ typedef int (*progress_callback)(void *clientp,
                                 double dlnow,   
                                 double ultotal,   
                                 double ulnow);
-static inline CURLcode curl_easy_setopt_progressfunction(CURL *handle, int flag, progress_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_progressfunction(CURL *handle, progress_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_PROGRESSFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_progressdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_PROGRESSDATA, pointer);
+}
+
+
+static inline CURLcode curl_set_xferinfofunction(CURL *handle, progress_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_XFERINFOFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_xferinfodata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_XFERINFODATA, pointer);
 }
 
 typedef size_t (*header_callback)(char *buffer,   
                                     size_t size,   
                                     size_t nitems,   
                                     void *userdata);
-static inline CURLcode curl_easy_setopt_headerfunction(CURL *handle, int flag, header_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_headerfunction(CURL *handle, header_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_HEADERFUNCTION, callback);
+}
+
+static inline CURLcode curl_set_headerdata(CURL *handle, void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_HEADERDATA, pointer);
 }
 
 typedef int (*debug_callback)(CURL *handle,
@@ -383,15 +154,13 @@ typedef int (*debug_callback)(CURL *handle,
                                 char *data,
                                 size_t size,
                                 void *userptr);
-static inline CURLcode curl_easy_setopt_debugfunction(CURL *handle, int flag, debug_callback callback) {
-    return curl_easy_setopt(handle, flag, callback);
+static inline CURLcode curl_set_debugfunction(CURL *handle, debug_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_DEBUGFUNCTION, callback);
 }
 
-//BEHAVIOR OPTIONS
-
-
-//CALLBACK OPTIONS
-
+static inline CURLcode curl_set_debugdata(CURL *handle,  void *pointer) {
+    return curl_easy_setopt(handle, CURLOPT_DEBUGDATA, pointer);
+}
 
 typedef CURLcode (*ssl_ctx_callback)(CURL *curl, 
                                     void *ssl_ctx, 
