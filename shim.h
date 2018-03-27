@@ -253,7 +253,7 @@ static inline CURLcode curl_easy_setopt_keep_sending_on_error(CURL *handle, long
 */
 
 //NETWORK OPTIONS
-static inline CURLcode curl_easy_setopt_url(CURL *handle, char* url) {
+static inline CURLcode curl_easy_setopt_url(CURL *handle, const char* url) {
     return curl_easy_setopt(handle, CURLOPT_URL , url);
 }
 
