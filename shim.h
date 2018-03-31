@@ -775,7 +775,7 @@ static inline CURLcode curl_easy_setopt_resume_from_large(CURL *handle, curl_off
     return curl_easy_setopt(handle, CURLOPT_RESUME_FROM_LARGE, from);
 }
 
-static inline CURLcode curl_easy_setopt_customrequest(CURL *handle,  char *request) {
+static inline CURLcode curl_easy_setopt_customrequest(CURL *handle,  const char *request) {
     return curl_easy_setopt(handle, CURLOPT_CUSTOMREQUEST, request);
 }
 
