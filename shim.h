@@ -33,6 +33,10 @@ static inline CURLcode curl_easy_setopt_wr_callback(CURL *handle, CURLoption opt
     return curl_easy_setopt(handle, option, callback);
 }
 
+static inline CURLcode curl_easy_setopt_void(CURL *handle, CURLoption option, void* pointer) {
+    return curl_easy_setopt(handle, option, pointer);
+}
+
 
 //old
 
