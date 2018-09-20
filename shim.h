@@ -22,6 +22,14 @@
 #define CURL_TRUE  1
 #define CURL_FALSE 0
 
+
+static inline CURLcode curl_easy_setopt_long(CURL *handle, CURLoption option, long onoff) {
+    return curl_easy_setopt(handle, option, onoff);
+}
+
+
+//old
+
 typedef size_t (*CurlFunc)(void * ptr, size_t size, size_t num, void * ud);
 
 //BEHAVIOR OPTIONS
