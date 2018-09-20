@@ -27,6 +27,12 @@ static inline CURLcode curl_easy_setopt_long(CURL *handle, CURLoption option, lo
     return curl_easy_setopt(handle, option, onoff);
 }
 
+//CALLBACK OPTIONS
+typedef size_t (*wr_callback)(char *ptr, size_t size, size_t nmemb, void *userdata);
+static inline CURLcode curl_easy_setopt_wr_callback(CURL *handle, CURLoption option, wr_callback callback) {
+    return curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, callback);
+}
+
 
 //old
 
