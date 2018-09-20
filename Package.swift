@@ -5,13 +5,12 @@ import PackageDescription
 
 let package = Package(
         name: "CCurl",
-        dependencies: [
-            // Dependencies declare other packages that this package depends on.
-            // .package(url: /* package url */, from: "1.0.0"),
-        ],
-
         providers: [
             .brew(["curl --with-libressl --with-nghttp2"]),
             .apt(["libcurl4-openssl-dev"])
+        ],
+        dependencies: [
+            // Dependencies declare other packages that this package depends on.
+            // .package(url: /* package url */, from: "1.0.0"),
         ]
 )
